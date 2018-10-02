@@ -8,7 +8,7 @@
 
 ### Test endpoints
 
-#### [GET] /ping/<name>
+#### [GET] /ping/$name
 
 This endpoint can be used to check connectivity to the API. The `<name>` field
 creates a personalized response:
@@ -23,7 +23,7 @@ Alternatively, a 404 status response would do the same thing. Your call...
 
 ### Search endpoints
 
-#### [GET] /location/search/<latitude>,<longitude>?[radius=10]
+#### [GET] /location/search/$latitude,$longitude?[radius=10]
 
 This endpoint will return parking spots within a radius, calculated in relation
 to a given `latitude` and `longitude`.
@@ -31,7 +31,7 @@ to a given `latitude` and `longitude`.
 *Params:*
 - radius => (in miles) default:10, max:50, min:1
 
-#### [GET] /location/search/<query>?[radius=10]
+#### [GET] /location/search/$query?[radius=10]
 
 This endpoint will return parking spots within a radius, calculated in relation
 to a given search `query` (for example: University Drive, San Marcos, TX).
@@ -41,15 +41,15 @@ to a given search `query` (for example: University Drive, San Marcos, TX).
 
 ### Report endpoints *Future implementations*
 
-#### [PUT] /location/report/parking/<latitude>,<longitude>
+#### [PUT] /location/report/parking/$latitude,$longitude
 
 Report that a parking spot is now taken, in a given `latitude` and `longitude`.
 
-#### [PUT] /location/report/leaving/<latitude>,<longitude>
+#### [PUT] /location/report/leaving/$latitude,$longitude
 
 Report that a parking spot is now freeing up, in a given `latitude` and 
 `longitude`.
 
-#### [PUT] /location/report/full/<latitude>,<longitude>
+#### [PUT] /location/report/full/$latitude,$longitude
 
 Report that a parking lot is full, in a given `latitude` and `longitude`.
