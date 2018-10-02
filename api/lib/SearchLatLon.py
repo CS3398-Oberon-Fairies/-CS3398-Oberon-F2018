@@ -1,12 +1,14 @@
 
 from lib.BasicEndpoint import BasicEndpoint
 import json
+from db.SearchInterface import SearchInterface
 
 class SearchLatLon(BasicEndpoint):
 
 	# ==========================================================================
-	def __init__(self):
+	def __init__(self, connection):
 		BasicEndpoint.__init__(self, "SearchLatLon", "/location/search/<latitude>,<longitude>")
+		self._search_connection = SearchInterface(connection)
 
 	# ==========================================================================
 	def get(self, params, args):
@@ -18,11 +20,19 @@ class SearchLatLon(BasicEndpoint):
 				return self.createError("error", "Radius not in valid range.")
 			radius = params.args["radius"]
 
+		names, res = self._search_connection.getSearchResultsByLatLng(
+			args["latitude"],
+			args["longitude"],
+			radius
+		)
+
 		resp = {
 			"status":200,
 			"lat": args["latitude"],
 			"lon": args["longitude"],
-			"radius": radius
+			"radius": radius,
+			"alias": names,
+			"result": res
 		}
 
 		# TODO: call DB to get results

@@ -8,7 +8,7 @@
 
 ### Test endpoints
 
-#### [GET] /ping/<name>
+#### [GET] /ping/$name
 
 This endpoint can be used to check connectivity to the API. The `<name>` field
 creates a personalized response:

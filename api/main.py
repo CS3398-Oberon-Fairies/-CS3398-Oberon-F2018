@@ -3,12 +3,20 @@ from flask import Flask
 from lib.PingEndpoint import PingEndpoint
 from lib.SearchLatLon import SearchLatLon
 from lib.SearchQuery import SearchQuery
+from db.BasicConnection import BasicConnection
 import sys
 
 ################################################################################
 class BasicAPI:
 
 	_endpoints = {}
+
+	# ==========================================================================
+	def __init__(self):
+
+		# TODO: initialize DB connection
+		self._app = Flask(__name__)
+		self.loadRoutes()	
 
 	# ==========================================================================
 	def addEndpoint(self, endpoint_handler, methods=["GET"]):
@@ -32,22 +40,22 @@ class BasicAPI:
 	def loadRoutes(self):
 
 		# TODO: load routers from configuration
-		return -1
-
-	# ==========================================================================
-	def __init__(self):
-
-		self._app = Flask(__name__)
-		self.loadRoutes()		
+		return -1	
 
 ################################################################################
+try:
+	CONN = BasicConnection("root", "", "127.0.0.1", "pp")
+except:
+	print("[ERROR] Could not establish DB connection.")
+	exit(1)
+
 def main(argv):
 
 	if argv[0] == "test":
 		api = BasicAPI()
 		api.addEndpoint(PingEndpoint())
-		api.addEndpoint(SearchLatLon())
-		api.addEndpoint(SearchQuery())
+		api.addEndpoint(SearchLatLon(CONN))
+		api.addEndpoint(SearchQuery(CONN))
 		api.runServer(debug=True)
 	elif argv[0] == "run":
 		api = BasicAPI()
