@@ -28,42 +28,23 @@
         <script>
             var mylat = '29.8833';
             var mylong = '-97.9414';
-            var myzoom = '15';
+            var myzoom = '13';
             var map = L.map('map').setView([mylat, mylong], myzoom);
-            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', 
-            {
-                maxZoom: 17,
-                attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+	           maxZoom: 17,
+	           attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
             }).addTo(map);
 
-            L.marker([mylat, mylong]).addTo(map).bindPopup("<b>San Marcos</b>").openPopup();
-            L.circle([mylat, mylong], 500, {
-                color: 'red',
-                fillColor: '#f2d5df',
-                fillOpacity: 0.2
-            }).addTo(map).bindPopup("");
-
-            markers = [{
-                "name": "Bobcat Stadium",
-                "url": "",
-                "lat": 29.8910,
-                "lng": -97.9256
-            }, {
-                "name": "Strahan Coliseum",
-                "url": "",
-                "lat": 29.8885,
-                "lng": -97.9326
-            }];
-            for (var i = 0; i < markers.length; ++i) {
-                L.marker([markers[i].lat, markers[i].lng], {
-                    icon: new L.DivIcon({
-                        className: 'my-div-icon',
-                        html: '<span class="my-map-label">' + markers[i].name + '</span>'
-                    })
-                }).addTo(map);
-
-                L.marker([markers[i].lat, markers[i].lng]).addTo(map).bindPopup(markers[i].name);
+            function showMarker(poi, ae){
+	           L.marker([poi[ae["Latitude"]], poi[ae["Longitude"]]]).addTo(map);
+	           L.marker([poi[ae["Latitude"]], poi[ae["Longitude"]]]).addTo(map).bindPopup(poi[ae["LotName"]]);
             }
+
+            $.getJSON("http://localhost:5000/location/search/" + mylat + "," + mylong, function(data){
+	           var alias_encoding = {};
+	           for(var it = 0; it < data.alias.length; it++) alias_encoding[data.alias[it]] = it;
+	           for(var it = 0; it < data.result.length; it++) showMarker(data.result[it], alias_encoding)
+            });
         </script>
 
             
