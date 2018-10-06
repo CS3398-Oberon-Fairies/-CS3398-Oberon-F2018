@@ -6,3 +6,7 @@ interactive map of the campus parking lots and actively show which parking spots
 are open or taken. It will also give users the option to let it be known when 
 they are leaving a certain parking spot, so others will know that a spot will 
 be available soon.
+
+### STATUS:
+No building neccessary. Every team member had to install python3 with all
+dependencies to run the API, as well as the DB. 
