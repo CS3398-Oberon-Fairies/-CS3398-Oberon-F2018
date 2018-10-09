@@ -1,0 +1,101 @@
+display_name,importance,place_id,lon,lat,osm_type,licence,osm_id,boundingbox,type,class
+,,,,,,,,,,
+"Starplex Cinemas customer parking, Leah Avenue, Feltner, San Marcos, Hays County, Texas, 78666-5923, USA",0.401,83417719,-97.95064876,29.8527467,way,"Data © OpenStreetMap contributors, ODbL 1.0. https://osm.org/copyright",31107160,"[u'29.8518439', u'29.853677', u'-97.9517461', u'-97.9495385']",parking,amenity
+,,,,,,,,,,
+"LBJ Student Center Parking Garage, Gaillardia Street, East Guadalupe, San Marcos, Hays County, Texas, 78666, USA",0.401,94592889,-97.94546633,29.88964715,way,"Data © OpenStreetMap contributors, ODbL 1.0. https://osm.org/copyright",86323258,"[u'29.8892751', u'29.8900518', u'-97.9459342', u'-97.9449954']",parking,amenity
+,,,,,,,,,,
+"Churcjh Parking Lot, North LBJ Drive, Castle Forest, San Marcos, Hays County, Texas, 78666, USA",0.401,166506817,-97.94836446,29.89876505,way,"Data © OpenStreetMap contributors, ODbL 1.0. https://osm.org/copyright",410930567,"[u'29.8984814', u'29.8989976', u'-97.9487643', u'-97.9481098']",parking,amenity
+,,,,,,,,,,
+"Lowe's Home Improvement Center customer parking, McKinley Place Drive, Feltner, San Marcos, Hays County, Texas, 78666-5923, USA",0.401,99970689,-97.9525167,29.8548525,way,"Data © OpenStreetMap contributors, ODbL 1.0. https://osm.org/copyright",105894533,"[u'29.8540755', u'29.8557908', u'-97.9534255', u'-97.9514078']",parking,amenity
+,,,,,,,,,,
+"Pleasant Street Parking Garage, 102, Pleasant Street, Rio Vista, San Marcos, Hays County, Texas, 78666, USA",0.401,177571809,-97.94076155,29.88999785,way,"Data © OpenStreetMap contributors, ODbL 1.0. https://osm.org/copyright",470307321,"[u'29.8897133', u'29.890354', u'-97.941167', u'-97.9403461']",parking,amenity
+,,,,,,,,,,
+"Upper Purgatory Greenspace Parking Area, RM 12, Franklin Square, San Marcos, Hays County, Texas, 78666, USA",0.401,3665750,-97.977651,29.8836954,node,"Data © OpenStreetMap contributors, ODbL 1.0. https://osm.org/copyright",388833270,"[u'29.8836454', u'29.8837454', u'-97.977701', u'-97.977601']",parking,amenity
+,,,,,,,,,,
+"Wonder World, Wonder World Parking, Victory Gardens, San Marcos, Hays County, Texas, 78666, USA",0.401,188188201,-97.95737142,29.87725505,way,"Data © OpenStreetMap contributors, ODbL 1.0. https://osm.org/copyright",547772710,"[u'29.8768491', u'29.8777571', u'-97.9576699', u'-97.9567737']",parking,amenity
+,,,,,,,,,,
+"public library parking lot, East Hopkins Street, Rio Vista, San Marcos, Hays County, Texas, 78666-7235, USA",0.401,7041672,-97.9311421,29.8859118,node,"Data © OpenStreetMap contributors, ODbL 1.0. https://osm.org/copyright",715788525,"[u'29.8858618', u'29.8859618', u'-97.9311921', u'-97.9310921']",parking,amenity
+,,,,,,,,,,
+"Parking Lot for Peach Tree Lofts, North LBJ Drive, Rio Vista, San Marcos, Hays County, Texas, 78666, USA",0.401,195350126,-97.94351872,29.8951988,way,"Data © OpenStreetMap contributors, ODbL 1.0. https://osm.org/copyright",601437556,"[u'29.895', u'29.8953976', u'-97.9437454', u'-97.943292']",parking,amenity
+,,,,,,,,,,
+"Crestwood Shopping Center, TX 80, Castle Forest, San Marcos, Hays County, Texas, 78666, USA",0.401,4481720,-97.9711204,29.8984874,node,"Data © OpenStreetMap contributors, ODbL 1.0. https://osm.org/copyright",479052170,"[u'29.8984374', u'29.8985374', u'-97.9711704', u'-97.9710704']",parking,amenity
+,,,,,,,,,,
+"San Marcos Library Parking, East Hopkins Street, Rio Vista, San Marcos, Hays County, Texas, 78666-7235, USA",0.401,90218036,-97.93116283,29.8859923,way,"Data © OpenStreetMap contributors, ODbL 1.0. https://osm.org/copyright",57383489,"[u'29.885576', u'29.88639', u'-97.9314742', u'-97.9307286']",parking,amenity
+,,,,,,,,,,
+"Garden Oaks Parking, North LBJ Drive, Rio Vista, San Marcos, Hays County, Texas, 78666, USA",0.401,196343286,-97.9439368,29.8956794,way,"Data © OpenStreetMap contributors, ODbL 1.0. https://osm.org/copyright",601437558,"[u'29.8955149', u'29.8958439', u'-97.9441271', u'-97.9437465']",parking,amenity
+,,,,,,,,,,
+"East Hopkins Street, Rio Vista, San Marcos, Hays County, Texas, 78666-7235, USA",0.301,91000692,-97.93225226,29.88527835,way,"Data © OpenStreetMap contributors, ODbL 1.0. https://osm.org/copyright",57383483,"[u'29.8848923', u'29.8859481', u'-97.932708', u'-97.9318605']",parking,amenity
+,,,,,,,,,,
+"TX 80, Castle Forest, San Marcos, Hays County, Texas, 78666, USA",0.301,82838438,-97.97109528,29.8984729,way,"Data © OpenStreetMap contributors, ODbL 1.0. https://osm.org/copyright",30925144,"[u'29.8982571', u'29.8987184', u'-97.9714593', u'-97.9707383']",parking,amenity
+,,,,,,,,,,
+"Coliseum Lot (P9), Aquarena Springs Drive, Millview West, San Marcos, Hays County, Texas, 78666-7235, USA",0.301,83299954,-97.92979841,29.8899078,way,"Data © OpenStreetMap contributors, ODbL 1.0. https://osm.org/copyright",30793803,"[u'29.888613', u'29.8918128', u'-97.9314066', u'-97.9268661']",parking,amenity
+,,,,,,,,,,
+"Activity Center lot, East Hopkins Street, Rio Vista, San Marcos, Hays County, Texas, 78666-7235, USA",0.301,7006249,-97.9322686,29.8853444,node,"Data © OpenStreetMap contributors, ODbL 1.0. https://osm.org/copyright",715788416,"[u'29.8852944', u'29.8853944', u'-97.9323186', u'-97.9322186']",parking,amenity
+,,,,,,,,,,
+"Ringtail Ridge Greenspace Access Road, Castle Forest, San Marcos, Hays County, Texas, 78666, USA",0.301,1589163,-97.9679414,29.9029524,node,"Data © OpenStreetMap contributors, ODbL 1.0. https://osm.org/copyright",340522483,"[u'29.9029024', u'29.9030024', u'-97.9679914', u'-97.9678914']",parking,amenity
+,,,,,,,,,,
+"Sewell North (P14), Aquarena Springs Drive, Rio Vista, San Marcos, Hays County, Texas, 78666-7235, USA",0.301,175246612,-97.93337446,29.88976465,way,"Data © OpenStreetMap contributors, ODbL 1.0. https://osm.org/copyright",456631767,"[u'29.8892158', u'29.8902544', u'-97.9335749', u'-97.9324031']",parking,amenity
+,,,,,,,,,,
+"Strahan Expansion (R41), Charles Austin Drive, Rio Vista, San Marcos, Hays County, Texas, 78666, USA",0.301,176719539,-97.93154202,29.88905575,way,"Data © OpenStreetMap contributors, ODbL 1.0. https://osm.org/copyright",456629561,"[u'29.888879', u'29.889222', u'-97.9317549', u'-97.9313263']",parking,amenity
+,,,,,,,,,,
+"Interstate 35 Frontage Road, Rio Vista, San Marcos, Hays County, Texas, 78666-7235, USA",0.301,167068300,-97.92964056,29.87698735,way,"Data © OpenStreetMap contributors, ODbL 1.0. https://osm.org/copyright",414705683,"[u'29.8767736', u'29.87736', u'-97.9299047', u'-97.9293275']",parking,amenity
+,,,,,,,,,,
+"Church, North Bishop Street, Franklin Square, San Marcos, Hays County, Texas, 78666, USA",0.301,188221728,-97.96107553,29.8790383,way,"Data © OpenStreetMap contributors, ODbL 1.0. https://osm.org/copyright",547772685,"[u'29.8787855', u'29.8793082', u'-97.9614117', u'-97.960554']",parking,amenity
+,,,,,,,,,,
+"TX 80;TX 142, Blanco Gardens, San Marcos, Hays County, Texas, 78666-7235, USA",0.301,152515616,-97.9136588,29.88295735,way,"Data © OpenStreetMap contributors, ODbL 1.0. https://osm.org/copyright",334220397,"[u'29.8816689', u'29.8843457', u'-97.9146872', u'-97.9119217']",parking,amenity
+,,,,,,,,,,
+"Interstate 35 Frontage Road, Millview West, San Marcos, Hays County, Texas, 78666-7235, USA",0.301,145771957,-97.91387229,29.8903244,way,"Data © OpenStreetMap contributors, ODbL 1.0. https://osm.org/copyright",300958372,"[u'29.890119', u'29.8905322', u'-97.9140848', u'-97.9136577']",parking,amenity
+,,,,,,,,,,
+"Bobcat Stadium East (P10E), Aquarena Springs Drive, Millview West, San Marcos, Hays County, Texas, 78666-7235, USA",0.301,144219205,-97.92404287,29.89119165,way,"Data © OpenStreetMap contributors, ODbL 1.0. https://osm.org/copyright",296586543,"[u'29.8905563', u'29.8923075', u'-97.9245869', u'-97.9228576']",parking,amenity
+,,,,,,,,,,
+"blue trail, Franklin Square, San Marcos, Hays County, Texas, 78666, USA",0.301,190727750,-97.9602332,29.87495995,way,"Data © OpenStreetMap contributors, ODbL 1.0. https://osm.org/copyright",548020759,"[u'29.8749078', u'29.8750121', u'-97.9602894', u'-97.960177']",parking,amenity
+,,,,,,,,,,
+"Strahan Reserve (R13), Aquarena Springs Drive, Rio Vista, San Marcos, Hays County, Texas, 78666, USA",0.301,174048122,-97.93349978,29.88884845,way,"Data © OpenStreetMap contributors, ODbL 1.0. https://osm.org/copyright",456631768,"[u'29.8886918', u'29.8889592', u'-97.9336405', u'-97.9333621']",parking,amenity
+,,,,,,,,,,
+"Mill Street (P12), Third Street, Millview East, San Marcos, Hays County, Texas, 78666, USA",0.201,178246248,-97.92055829,29.89497295,way,"Data © OpenStreetMap contributors, ODbL 1.0. https://osm.org/copyright",475099511,"[u'29.8937578', u'29.8963088', u'-97.9220944', u'-97.919585']",parking,amenity
+,,,,,,,,,,
+"Tower Garage, 507, North Guadalupe Street, East Guadalupe, San Marcos, Hays County, Texas, 78666, USA",0.201,177569376,-97.94264587,29.8870256,way,"Data © OpenStreetMap contributors, ODbL 1.0. https://osm.org/copyright",473661172,"[u'29.8867032', u'29.8873378', u'-97.9428748', u'-97.9423146']",parking,amenity
+,,,,,,,,,,
+"Lower Purgatory Creek Greenspace, Feltner, San Marcos, Hays County, Texas, 78666, USA",0.201,8175223,-97.964186,29.8657359,node,"Data © OpenStreetMap contributors, ODbL 1.0. https://osm.org/copyright",875914075,"[u'29.8656859', u'29.8657859', u'-97.964236', u'-97.964136']",parking,amenity
+,,,,,,,,,,
+"Cheatham Street, East Guadalupe, San Marcos, Hays County, Texas, 78666, USA",0.201,175463908,-97.93839548,29.87701025,way,"Data © OpenStreetMap contributors, ODbL 1.0. https://osm.org/copyright",464457978,"[u'29.8768433', u'29.8771308', u'-97.9387302', u'-97.93823']",parking,amenity
+,,,,,,,,,,
+"Academy Street Garage, Llano Circle, East Guadalupe, San Marcos, Hays County, Texas, 78666, USA",0.201,144461767,-97.94794159,29.88596305,way,"Data © OpenStreetMap contributors, ODbL 1.0. https://osm.org/copyright",295152894,"[u'29.885596', u'29.8863217', u'-97.948456', u'-97.9474318']",parking,amenity
+,,,,,,,,,,
+"Speck Street Garage, Academy Street, Castle Forest, San Marcos, Hays County, Texas, 78666, USA",0.201,88702352,-97.95311691,29.89073725,way,"Data © OpenStreetMap contributors, ODbL 1.0. https://osm.org/copyright",45839139,"[u'29.8902476', u'29.8912749', u'-97.9537615', u'-97.9525475']",parking,amenity
+,,,,,,,,,,
+"Stagecoach Trail, Feltner, San Marcos, Hays County, Texas, 78666, USA",0.201,53330707,-97.9648066,29.864227,node,"Data © OpenStreetMap contributors, ODbL 1.0. https://osm.org/copyright",4254018483,"[u'29.864177', u'29.864277', u'-97.9648566', u'-97.9647566']",parking,amenity
+,,,,,,,,,,
+"Davis Street, Millview West, San Marcos, Hays County, Texas, 78666-7235, USA",0.201,145773293,-97.91371277,29.89002025,way,"Data © OpenStreetMap contributors, ODbL 1.0. https://osm.org/copyright",300958373,"[u'29.8899425', u'29.8902229', u'-97.9139444', u'-97.9135582']",parking,amenity
+,,,,,,,,,,
+"South I-35 Frontage, East Guadalupe, San Marcos, Hays County, Texas, 78666, USA",0.201,7006480,-97.932561,29.8750626,node,"Data © OpenStreetMap contributors, ODbL 1.0. https://osm.org/copyright",715778982,"[u'29.8750126', u'29.8751126', u'-97.932611', u'-97.932511']",parking,amenity
+,,,,,,,,,,
+"East Grove Street, East Guadalupe, San Marcos, Hays County, Texas, 78666, USA",0.201,175464679,-97.93866025,29.8758146,way,"Data © OpenStreetMap contributors, ODbL 1.0. https://osm.org/copyright",464457972,"[u'29.8756991', u'29.87593', u'-97.9388064', u'-97.9385141']",parking,amenity
+,,,,,,,,,,
+"Riverside Drive, Rio Vista, San Marcos, Hays County, Texas, 78666, USA",0.201,167693570,-97.93110393,29.8781998,way,"Data © OpenStreetMap contributors, ODbL 1.0. https://osm.org/copyright",414705684,"[u'29.8780996', u'29.8783833', u'-97.9313191', u'-97.9308814']",parking,amenity
+,,,,,,,,,,
+"East Hutchison Street, Rio Vista, San Marcos, Hays County, Texas, 78666, USA",0.201,83417759,-97.93654594,29.88488535,way,"Data © OpenStreetMap contributors, ODbL 1.0. https://osm.org/copyright",31057563,"[u'29.8847216', u'29.8851086', u'-97.9367364', u'-97.9363501']",parking,amenity
+,,,,,,,,,,
+"Physical Plant (R6), East Sessom Drive, Rio Vista, San Marcos, Hays County, Texas, 78666, USA",0.201,176396030,-97.93796346,29.8911091,way,"Data © OpenStreetMap contributors, ODbL 1.0. https://osm.org/copyright",456631769,"[u'29.8910065', u'29.8912444', u'-97.938282', u'-97.9378161']",parking,amenity
+,,,,,,,,,,
+"Thorpe Lane, Millview West, San Marcos, Hays County, Texas, 78666, USA",0.201,196926331,-97.92605189,29.8864717,way,"Data © OpenStreetMap contributors, ODbL 1.0. https://osm.org/copyright",614066298,"[u'29.8858601', u'29.8872182', u'-97.9269817', u'-97.9248172']",parking,amenity
+,,,,,,,,,,
+"South LBJ Drive, East Guadalupe, San Marcos, Hays County, Texas, 78666, USA",0.201,175865406,-97.93887171,29.87637555,way,"Data © OpenStreetMap contributors, ODbL 1.0. https://osm.org/copyright",464457973,"[u'29.8760988', u'29.8766962', u'-97.9390252', u'-97.9387182']",parking,amenity
+,,,,,,,,,,
+"2701, Quail Creek Country Club Road, Fairlawn, San Marcos, Hays County, Texas, 78666-7235, USA",0.201,40887504,-97.8963504,29.8865174,node,"Data © OpenStreetMap contributors, ODbL 1.0. https://osm.org/copyright",3052958487,"[u'29.8864674', u'29.8865674', u'-97.8964004', u'-97.8963004']",parking,amenity
+,,,,,,,,,,
+"North I-35 Frontagw, Feltner, San Marcos, Hays County, Texas, 78666-5923, USA",0.201,176131504,-97.96219139,29.84739295,way,"Data © OpenStreetMap contributors, ODbL 1.0. https://osm.org/copyright",464458004,"[u'29.8471404', u'29.8477298', u'-97.96277', u'-97.9620464']",parking,amenity
+,,,,,,,,,,
+"Sessom Lot (R2), East Sessom Drive, Rio Vista, San Marcos, Hays County, Texas, 78666, USA",0.201,175026510,-97.93743301,29.8914696,way,"Data © OpenStreetMap contributors, ODbL 1.0. https://osm.org/copyright",456619198,"[u'29.8908922', u'29.8920117', u'-97.9377474', u'-97.936601']",parking,amenity
+,,,,,,,,,,
+"Edward Gary Garage (Public Pay to Park), 405, North Edward Gary Street, East Guadalupe, San Marcos, Hays County, Texas, 78666, USA",0.201,178476775,-97.93972899,29.8858676,way,"Data © OpenStreetMap contributors, ODbL 1.0. https://osm.org/copyright",473629464,"[u'29.8856312', u'29.8860998', u'-97.940183', u'-97.9392698']",parking,amenity
+,,,,,,,,,,
+"Sessom Lot (P5), East Sessom Drive, Rio Vista, San Marcos, Hays County, Texas, 78666, USA",0.201,174671141,-97.93732118,29.891219,way,"Data © OpenStreetMap contributors, ODbL 1.0. https://osm.org/copyright",456619199,"[u'29.8906497', u'29.8917844', u'-97.937579', u'-97.9366208']",parking,amenity
+,,,,,,,,,,
+"Blanco Hall Garage, 201, Blanco Hall Drive, Castle Forest, San Marcos, Hays County, Texas, 78666, USA",0.201,179996607,-97.95306674,29.8871625,way,"Data © OpenStreetMap contributors, ODbL 1.0. https://osm.org/copyright",473661173,"[u'29.8864359', u'29.8878694', u'-97.9534976', u'-97.9519631']",parking,amenity
+,,,,,,,,,,
+"Bobcat Stadium West (P10W), Robbie Lane, Millview West, San Marcos, Hays County, Texas, 78666-7235, USA",0.201,174673057,-97.92662013,29.88930285,way,"Data © OpenStreetMap contributors, ODbL 1.0. https://osm.org/copyright",456629559,"[u'29.8879005', u'29.8906269', u'-97.9275229', u'-97.9255221']",parking,amenity
+,,,,,,,,,,
+"Matthews Garage, 206, Student Center Drive, East Guadalupe, San Marcos, Hays County, Texas, 78666, USA",0.201,178124260,-97.94392305,29.89079995,way,"Data © OpenStreetMap contributors, ODbL 1.0. https://osm.org/copyright",476948162,"[u'29.8902159', u'29.8913611', u'-97.9443202', u'-97.9433111']",parking,amenity
+,,,,,,,,,,
+"Endzone Complex (R39), Robbie Lane, Millview West, San Marcos, Hays County, Texas, 78666-7235, USA",0.201,174294085,-97.92553723,29.88974215,way,"Data © OpenStreetMap contributors, ODbL 1.0. https://osm.org/copyright",456629560,"[u'29.8896485', u'29.8899136', u'-97.9257801', u'-97.9253792']",parking,amenity
