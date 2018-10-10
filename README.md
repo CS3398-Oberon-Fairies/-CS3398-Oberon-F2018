@@ -9,6 +9,9 @@ be available soon.
 
 ### STATUS:
 
+*We completed almost all of the tasks that we had planned, and the app works as
+expected.*
+
 The web app is currently complete. It needs to be run local, however. Once the DB
 has been imported into MySQL (./DB/parkinglot.sql into a database called `pp`), 
 the API needs to be started with the command `python api/main.py test`. Then the 
