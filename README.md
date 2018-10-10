@@ -29,10 +29,11 @@ dependencies to run the API, as well as MySQL for the DB.
 
 #### Goals:
 
-- Improve front-end display to show more than just the location of parking lots.
-- Extend the API for more features (such as social parking spot reports of full 
-lots, etc).
-- Finalize importing parking spots to DB from OSM.
+- Alex and ?: Improve front-end display to show more than just the location of 
+    parking lots.
+- Patrick and ?: Extend the API for more features (such as social parking spot 
+    reports of full lots, etc).
+- Gary and Rogelio: Finalize importing parking spots to DB from OSM.
 
 #### Parts:
 
