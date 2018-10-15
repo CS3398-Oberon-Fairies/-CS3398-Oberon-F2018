@@ -1,6 +1,5 @@
 
 import mysql.connector
-import _mysql
 import urllib.request
 import json
 
