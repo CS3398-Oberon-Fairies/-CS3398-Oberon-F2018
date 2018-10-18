@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Sep 30, 2018 at 08:14 PM
+-- Generation Time: Oct 18, 2018 at 08:31 PM
 -- Server version: 8.0.12
 -- PHP Version: 7.3.0RC1
 
@@ -21,6 +21,8 @@ SET time_zone = "+00:00";
 --
 -- Database: `lots`
 --
+CREATE DATABASE IF NOT EXISTS `lots` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
+USE `lots`;
 
 -- --------------------------------------------------------
 
@@ -33,15 +35,27 @@ CREATE TABLE `parkinglot` (
   `SpacesTotal` int(11) DEFAULT NULL,
   `SpacesLeft` int(11) DEFAULT NULL,
   `Latitude` double NOT NULL,
-  `Longitude` double NOT NULL
+  `Longitude` double NOT NULL,
+  `Full` tinyint(1) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `parkinglot`
 --
 
-INSERT INTO `parkinglot` (`LotName`, `SpacesTotal`, `SpacesLeft`, `Latitude`, `Longitude`) VALUES
-('Coliseum Lot (P9)', 819, 819, 29.8899078, -97.9297984);
+INSERT INTO `parkinglot` (`LotName`, `SpacesTotal`, `SpacesLeft`, `Latitude`, `Longitude`, `Full`) VALUES
+('Coliseum Lot (P9)', 819, 819, 29.8899078, -97.9297984, 0);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `users`
+--
+
+CREATE TABLE `users` (
+  `Username` text CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `Password` text CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Indexes for dumped tables
@@ -53,6 +67,11 @@ INSERT INTO `parkinglot` (`LotName`, `SpacesTotal`, `SpacesLeft`, `Latitude`, `L
 ALTER TABLE `parkinglot`
   ADD UNIQUE KEY `LotIdentifier_UNIQUE` (`LotName`),
   ADD UNIQUE KEY `GPS_UNIQUE` (`Latitude`);
+--
+-- Database: `mydb`
+--
+CREATE DATABASE IF NOT EXISTS `mydb` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
+USE `mydb`;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
