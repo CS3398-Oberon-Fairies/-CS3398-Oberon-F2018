@@ -1,6 +1,5 @@
 
 import mysql.connector
-import _mysql
 
 class BasicConnection:
 

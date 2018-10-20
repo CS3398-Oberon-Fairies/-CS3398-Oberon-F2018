@@ -31,6 +31,14 @@ class BasicAPI:
 			endpoint_handler.catch,
 			methods=methods
 		)
+		self._app.after_request(self.fixRequest)
+
+	# ==========================================================================
+	def fixRequest(self, response):
+		
+	    response.headers["Access-Control-Allow-Origin"] = "*"
+	    response.mimetype="application/json"
+	    return response
 
 	# ==========================================================================
 	def runServer(self, host="127.0.0.1", debug=True):
@@ -45,7 +53,11 @@ class BasicAPI:
 
 ################################################################################
 try:
+<<<<<<< HEAD
 	CONN = BasicConnection("root", "m4p8v3p7g6", "127.0.0.1", "pp")
+=======
+	CONN = BasicConnection("root", "", "localhost", "pp")
+>>>>>>> master
 except:
 	print("[ERROR] Could not establish DB connection.")
 	exit(1)
