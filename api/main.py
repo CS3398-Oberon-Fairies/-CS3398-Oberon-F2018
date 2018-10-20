@@ -1,6 +1,7 @@
 
 from flask import Flask
 from lib.PingEndpoint import PingEndpoint
+from lib.SocialEndpoint import SocialEndpoint
 from lib.SearchLatLon import SearchLatLon
 from lib.SearchQuery import SearchQuery
 from db.BasicConnection import BasicConnection
@@ -44,7 +45,7 @@ class BasicAPI:
 
 ################################################################################
 try:
-	CONN = BasicConnection("root", "", "127.0.0.1", "pp")
+	CONN = BasicConnection("root", "m4p8v3p7g6", "127.0.0.1", "pp")
 except:
 	print("[ERROR] Could not establish DB connection.")
 	exit(1)
@@ -54,6 +55,7 @@ def main(argv):
 	if argv[0] == "test":
 		api = BasicAPI()
 		api.addEndpoint(PingEndpoint())
+		api.addEndpoint(SocialEndpoint(CONN), methods=["POST"])
 		api.addEndpoint(SearchLatLon(CONN))
 		api.addEndpoint(SearchQuery(CONN))
 		api.runServer(debug=True)
