@@ -6,20 +6,40 @@ from db.SocialInterface import SocialInterface
 
 class SocialEndpoint(BasicEndpoint):
 
-	_search_connection = None
+	_social_connection = None
 
 	# ==========================================================================
 	def __init__(self, connection):
 		BasicEndpoint.__init__(self, "SocialEndpoint", "/social/<action>")
-		self._search_connection = SocialInterface(connection)
+		self._social_connection = SocialInterface(connection)
 
 	# ==========================================================================
 	def register(self, form):
-		return json.dumps({})
+		names, res = self._social_connection.createUser(form["email"], form["password"])
+		if not names: return json.dumps({
+				"status":"error",
+				"action": "register",
+				"message": res
+			})
+		return json.dumps({
+			"status":"success",
+			"action": "register",
+			"message": res
+		})
 
 	# ==========================================================================
 	def login(self, form):
-		return json.dumps({})
+		names, res = self._social_connection.loginUser(form["email"], form["password"])
+		if not names: return json.dumps({
+				"status":"error",
+				"action": "login",
+				"message": res
+			})
+		return json.dumps({
+			"status":"success",
+			"action": "login",
+			"token": res
+		})
 
 	# ==========================================================================
 	def post(self, params, args):

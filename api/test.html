@@ -4,6 +4,34 @@
         "method": "POST",
         "data": {"email":"test@test.com", "password":"Password1"},
         "success": function(data){
+            console.log("CREATE USER");
+            console.log(data);
+        }
+    });
+
+    $.ajax("http://127.0.0.1:5000/social/login", {
+        "method": "POST",
+        "data": {"email":"test@test.co", "password":"Password1"},
+        "success": function(data){
+            console.log("WRONG USERNAME");
+            console.log(data);
+        }
+    });
+
+    $.ajax("http://127.0.0.1:5000/social/login", {
+        "method": "POST",
+        "data": {"email":"test@test.com", "password":"Password"},
+        "success": function(data){
+            console.log("WRONG PASSWORD");
+            console.log(data);
+        }
+    });
+
+    $.ajax("http://127.0.0.1:5000/social/login", {
+        "method": "POST",
+        "data": {"email":"test@test.com", "password":"Password1"},
+        "success": function(data){
+            console.log("ACTUAL LOGIN");
             console.log(data);
         }
     });
