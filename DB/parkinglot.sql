@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Oct 18, 2018 at 08:31 PM
+-- Generation Time: Oct 23, 2018 at 04:38 PM
 -- Server version: 8.0.12
 -- PHP Version: 7.3.0RC1
 
@@ -21,8 +21,6 @@ SET time_zone = "+00:00";
 --
 -- Database: `lots`
 --
-CREATE DATABASE IF NOT EXISTS `lots` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
-USE `lots`;
 
 -- --------------------------------------------------------
 
@@ -31,6 +29,7 @@ USE `lots`;
 --
 
 CREATE TABLE `parkinglot` (
+  `Lot_id` smallint(3) NOT NULL,
   `LotName` varchar(45) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   `SpacesTotal` int(11) DEFAULT NULL,
   `SpacesLeft` int(11) DEFAULT NULL,
@@ -43,8 +42,20 @@ CREATE TABLE `parkinglot` (
 -- Dumping data for table `parkinglot`
 --
 
-INSERT INTO `parkinglot` (`LotName`, `SpacesTotal`, `SpacesLeft`, `Latitude`, `Longitude`, `Full`) VALUES
-('Coliseum Lot (P9)', 819, 819, 29.8899078, -97.9297984, 0);
+INSERT INTO `parkinglot` (`Lot_id`, `LotName`, `SpacesTotal`, `SpacesLeft`, `Latitude`, `Longitude`, `Full`) VALUES
+(1, 'Coliseum Lot (P9)', 819, 819, 29.8899078, -97.9297984, 0);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `sessions`
+--
+
+CREATE TABLE `sessions` (
+  `session_id` bigint(20) NOT NULL,
+  `user_id` bigint(20) NOT NULL,
+  `Token` varchar(250) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -65,13 +76,31 @@ CREATE TABLE `users` (
 -- Indexes for table `parkinglot`
 --
 ALTER TABLE `parkinglot`
+  ADD PRIMARY KEY (`Lot_id`),
   ADD UNIQUE KEY `LotIdentifier_UNIQUE` (`LotName`),
   ADD UNIQUE KEY `GPS_UNIQUE` (`Latitude`);
+
 --
--- Database: `mydb`
+-- Indexes for table `sessions`
 --
-CREATE DATABASE IF NOT EXISTS `mydb` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
-USE `mydb`;
+ALTER TABLE `sessions`
+  ADD PRIMARY KEY (`session_id`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `parkinglot`
+--
+ALTER TABLE `parkinglot`
+  MODIFY `Lot_id` smallint(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `sessions`
+--
+ALTER TABLE `sessions`
+  MODIFY `session_id` bigint(20) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
