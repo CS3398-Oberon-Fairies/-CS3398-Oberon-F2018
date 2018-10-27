@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Oct 23, 2018 at 09:47 PM
+-- Generation Time: Oct 27, 2018 at 12:04 AM
 -- Server version: 8.0.12
 -- PHP Version: 7.3.0RC1
 
@@ -101,6 +101,19 @@ INSERT INTO `parkinglot` (`Lot_id`, `LotName`, `SpacesTotal`, `SpacesLeft`, `Lat
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `report`
+--
+
+CREATE TABLE `report` (
+  `user_id` int(11) NOT NULL,
+  `report` tinytext NOT NULL,
+  `timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `lot_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `sessions`
 --
 
@@ -132,6 +145,12 @@ ALTER TABLE `parkinglot`
   ADD PRIMARY KEY (`Lot_id`),
   ADD UNIQUE KEY `LotIdentifier_UNIQUE` (`LotName`),
   ADD UNIQUE KEY `GPS_UNIQUE` (`Latitude`);
+
+--
+-- Indexes for table `report`
+--
+ALTER TABLE `report`
+  ADD PRIMARY KEY (`lot_id`);
 
 --
 -- Indexes for table `sessions`
