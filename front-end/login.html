@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login</title>
+    
+    <link href="css/login.css" type="text/css" rel="stylesheet">
+    
+</head>
+
+<body>
+    
+    <div class="wrapper">
+        
+        <div class="top">Priority Parking User Login/Registration</div>
+        
+        <div class="login">
+            <div class="logheader">
+                <div>Login</div>
+    
+            <br>
+            <form name="login">
+                <input type="userlog" placeholder="email" id="eLog"><br>
+                <input type="passlog" placeholder="password" id="pLog"><br>
+                <input type="button" onclick="logFunction()" value="Login"><br>
+                
+                <script type="text/javascript" src="../front-end/js/jquery-3.3.1.min.js"></script> 
+                <script type="text/javascript">>
+                
+                    function logFunction() {
+                        var a = document.getElementById("eLog").value;
+                        document.getElementById("demo").innerHTML = a;
+                        var b = document.getElementById("pLog").value;
+                        document.getElementById("demo2").innerHTML = b;
+                
+                        if(a == true && b == true){
+                        
+                        $.ajax("http://127.0.0.1:5000/social/login", {
+                            "method": "POST",
+                            "data": {"email": a, "password": b},
+                            "success": function(data){
+                                console.log("ATTEMPTED LOGIN");
+                                console.log(data);
+                                sessionStorage.token = data["token"];
+                            }
+                        });
+                        }
+                    }
+                    
+                </script>
+                
+            </form>
+            </div>
+    
+
+        </div>
+            
+        
+        <div class="register">
+            <div class="regheader">
+                <div>Register</div>
+    
+            <br>
+            <form name="register">
+                <input type="userreg" placeholder="email" id="eReg"><br>
+                <input type="passreg" placeholder="password" id="pReg"><br>
+                <input type="button" onclick="regFunction()" value="Register"><br>
+                
+                <script type="text/javascript" src="../front-end/js/jquery-3.3.1.min.js"></script> 
+                <script type="text/javascript">>
+                
+                    function regFunction() {
+                        var x = document.getElementById("eReg").value;
+                        document.getElementById("demo").innerHTML = x;
+                        var y = document.getElementById("pReg").value;
+                        document.getElementById("demo2").innerHTML = y;
+                
+                        if(x == true && y == true){
+                        
+                        $.ajax("http://127.0.0.1:5000/social/register", {
+                            "method": "POST",
+                            "data": {"email": x, "password": y},
+                            "success": function(data){
+                                console.log("ATTEMPTED REGISTRATION");
+                                console.log(data);
+                                
+                            }
+                        });
+                        }
+                    }
+                    
+                </script>
+            </form>
+            </div>
+    
+
+        </div>
+        
+        <a href="prioritypark.html">
+            <button>Go to Map!</button>
+        </a>
+        
+           
+    </div>
+    
+    
+    
+    
+    
+</body>
+
+
+
+</html>

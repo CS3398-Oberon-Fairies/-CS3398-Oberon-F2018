@@ -9,6 +9,7 @@
         
     <script type='text/javascript' src='js/jquery-3.3.1.min.js'></script>
     <script type='text/javascript' src='js/leaflet.js'></script>
+        
               
 </head>
 <body>
@@ -20,12 +21,20 @@
         <div class="description">
             Our goal is to help students, teachers, and other individuals find parking in an easier and more efficient manner.
         </div>
-            
-            
+        
+        <div class="btn-wrapper">
+        <div class= "btn-group">
+            <button>Just parked</button>
+            <button>Just left</button>
+            <button>Lot is full</button>
+        </div>
+        </div>    
+             
         <div id="map">
         </div>
         
-        <script>
+        <script>            
+            
             var mylat = '29.8833';
             var mylong = '-97.9414';
             var myzoom = '13';
@@ -45,13 +54,15 @@
 	           for(var it = 0; it < data.alias.length; it++) alias_encoding[data.alias[it]] = it;
 	           for(var it = 0; it < data.result.length; it++) showMarker(data.result[it], alias_encoding)
             });
+            
         </script>
 
-            
-            
+        
         <div class="footer">
             Team Oberon Fairies
         </div>
+        
+        
     </div>
 
 </body>
