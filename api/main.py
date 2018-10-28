@@ -53,7 +53,7 @@ class BasicAPI:
 
 ################################################################################
 try:
-	CONN = BasicConnection("root", "m4p8v3p7g6", "127.0.0.1", "pp")
+	CONN = BasicConnection("root", "", "127.0.0.1", "pp")
 except:
 	print("[ERROR] Could not establish DB connection.")
 	exit(1)
