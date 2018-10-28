@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Oct 27, 2018 at 12:04 AM
+-- Generation Time: Oct 27, 2018 at 08:33 PM
 -- Server version: 8.0.12
 -- PHP Version: 7.3.0RC1
 
@@ -130,6 +130,7 @@ CREATE TABLE `sessions` (
 --
 
 CREATE TABLE `users` (
+  `user_id` bigint(20) NOT NULL,
   `Username` text CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   `Password` text CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -159,6 +160,12 @@ ALTER TABLE `sessions`
   ADD PRIMARY KEY (`session_id`);
 
 --
+-- Indexes for table `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`user_id`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -173,6 +180,12 @@ ALTER TABLE `parkinglot`
 --
 ALTER TABLE `sessions`
   MODIFY `session_id` bigint(20) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `users`
+--
+ALTER TABLE `users`
+  MODIFY `user_id` bigint(20) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
