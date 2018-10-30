@@ -1,0 +1,43 @@
+<script type="text/javascript" src="../front-end/js/jquery-3.3.1.min.js"></script>
+<script type="text/javascript">
+    $.ajax("http://127.0.0.1:5000/report/report", {
+        "method": "POST",
+        "data": {"lotName":"EGS Garage", "lot_status":"full"},
+        "success": function(data){
+            console.log("CREATE LOT STATUS REPORT");
+            console.log(data);
+        }
+    });
+    $.ajax("http://127.0.0.1:5000/report/report", {
+        "method": "POST",
+        "data": {"lotName":"Garage", "lot_status":"full"},
+        "success": function(data){
+            console.log("INCORRECT LOT NAME");
+            console.log(data);
+        }
+    });
+    $.ajax("http://127.0.0.1:5000/report/checkStatus", {
+        "method": "POST",
+        "data": {"lotName":"Jowers Acc"},
+        "success": function(data){
+            console.log("INCORRECT LOT NAME");
+            console.log(data);
+        }
+    });
+    $.ajax("http://127.0.0.1:5000/report/checkStatus", {
+        "method": "POST",
+        "data": {"lotName":"Jowers Access"},
+        "success": function(data){
+            console.log("LOT FULL");
+            console.log(data);
+        }
+    });
+    $.ajax("http://127.0.0.1:5000/report/checkStatus", {
+        "method": "POST",
+        "data": {"lotName":"105-Admissions"},
+        "success": function(data){
+            console.log("LOT NOT FULL");
+            console.log(data);
+        }
+    });
+</script>
