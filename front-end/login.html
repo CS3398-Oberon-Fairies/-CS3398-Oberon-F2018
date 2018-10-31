@@ -40,7 +40,7 @@
                             "success": function(data){
                                 console.log("ATTEMPTED LOGIN");
                                 console.log(data);
-                                sessionStorage.token = data["token"];
+                                sessionStorage.setItem = ("userToken", data["token"]);
                             }
                         });
                         }
@@ -92,22 +92,14 @@
             </form>
             </div>
     
-
         </div>
         
         <a href="prioritypark.html">
             <button>Go to Map!</button>
-        </a>
-        
+        </a> 
            
     </div>
     
-    
-    
-    
-    
 </body>
-
-
 
 </html>

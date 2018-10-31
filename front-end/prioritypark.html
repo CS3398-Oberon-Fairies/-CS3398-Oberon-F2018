@@ -15,24 +15,97 @@
 <body>
         
     <div class="wrapper">
+        
+    <!-- Title -->
         <div class="heading">
             <h1>Priority Parking</h1>
         </div>
+        
+    <!-- Description -->
         <div class="description">
             Our goal is to help students, teachers, and other individuals find parking in an easier and more efficient manner.
         </div>
         
+    <!-- Report Status Button -->
         <div class="btn-wrapper">
-        <div class= "btn-group">
-            <button>Just parked</button>
-            <button>Just left</button>
-            <button>Lot is full</button>
-        </div>
-        </div>    
-             
+            <div class= "btn-group">
+                <form>
+                    <input type="lotName" placeholder="Parkinglot Name" id="lotName">
+                    <input type="button" onclick="full()" value="Lot is full">
+                    <input type="button" onclick="notFull()" value="Lot is not full"><br>
+                    <input type="button" onclick="checkStatus()" value="Check lot status">
+                    <p id="result"></p>
+                </form>
+            </div>
+        </div> 
+        
+    <!-- Report Status Script -->
+        <script type="text/javascript" src="../front-end/js/jquery-3.3.1.min.js"></script> 
+        <script>
+            function full() {
+                var token = sessionStorage.getItem("userToken");
+                
+                var ln = document.getElementById("lotName").value;
+                document.getElementById("lotName").innerHTML = ln;    
+                
+                $.ajax("http://127.0.0.1:5000/report/report", {
+                    "method": "POST",
+                    "data": {"lotName":ln, "lot_status":"full", "token": token},
+                    "success": function(data){
+                        console.log("ATTEMPTED REPORT FULL");
+                        console.log(data);
+                    }
+                });
+            }
+        </script>
+        
+        <script type="text/javascript" src="../front-end/js/jquery-3.3.1.min.js"></script> 
+        <script>
+            
+            function notFull() {
+                var token = sessionStorage.getItem("userToken");
+                
+                var ln = document.getElementById("lotName").value;    
+                
+                $.ajax("http://127.0.0.1:5000/report/report", {
+                    "method": "POST",
+                    "data": {"lotName": ln, "lot_status": "not full", "token": token},
+                    "success": function(data){
+                        console.log("ATTEMPTED REPORT NOT FULL");
+                        console.log(data);
+                    }
+                });
+            }
+            
+        </script>
+        
+        <script type="text/javascript" src="../front-end/js/jquery-3.3.1.min.js"></script> 
+        <script>
+            
+            function checkStatus() {
+                var ln = document.getElementById("lotName").value; 
+                
+                
+                $.ajax("http://127.0.0.1:5000/report/checkStatus", {
+                    "method": "POST",
+                    "data": {"lotName":ln},
+                    "success": function(data){
+                        console.log("ATTEMPTED STATUS CHECK");
+                        console.log(data);
+                        var status = data["lot_status"];
+                    }
+                });
+                
+                document.getElementById("result").innerHTML = "Parking lot " + ln + " is " + status + "...";
+                
+            }
+        </script>     
+        
+    <!-- Leaflet Map -->
         <div id="map">
         </div>
-        
+    
+    <!-- Leaflet Map Script -->
         <script>            
             
             var mylat = '29.8833';
@@ -57,7 +130,7 @@
             
         </script>
 
-        
+    <!-- Footer -->
         <div class="footer">
             Team Oberon Fairies
         </div>
