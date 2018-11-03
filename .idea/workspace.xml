@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1b3bae52-5c80-422f-9b4c-751b4c4f5d8c" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/api/db/ReportInterface.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/db/ReportInterface.py" afterDir="false" />
-    </list>
+    <list default="true" id="1b3bae52-5c80-422f-9b4c-751b4c4f5d8c" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -14,6 +12,7 @@
     <session id="619477880">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
+          <entry key="project.closed" value="1" />
           <entry key="project.open.time.0" value="1" />
           <entry key="project.opened" value="1" />
         </counts>
@@ -32,14 +31,14 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/api/main.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="-744" />
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/api/db/ReportInterface.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="-612">
@@ -67,7 +66,7 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="1110" />
     <option name="y" value="225" />
     <option name="width" value="654" />
@@ -138,8 +137,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1295" height="695" extended-state="6" />
-    <editor active="true" />
+    <frame x="-7" y="-7" width="1295" height="695" extended-state="7" />
     <layout>
       <window_info id="Favorites" side_tool="true" />
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24960254" />
@@ -164,11 +162,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/api/main.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-744" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/api/db/SearchInterface.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
@@ -186,6 +179,11 @@
             <element signature="e#0#22#0" expanded="true" />
           </folding>
         </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/api/main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-744" />
       </provider>
     </entry>
   </component>
