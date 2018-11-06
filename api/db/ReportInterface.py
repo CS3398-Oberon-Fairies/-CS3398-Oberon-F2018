@@ -41,7 +41,7 @@ class ReportInterface:
         userID = sess[0][1]
         lotID = lot_info[0][0]
         if len(sess) > 0:
-            db_query = "INSERT INTO report (user_id ,report, lot_id) VALUES ('"+userID+"' , '"+lot_status+"','"+lotID+"')";
+            db_query = "INSERT INTO report (user_id ,report, lot_id) VALUES ("+str(userID)+" , \""+lot_status+"\","+str(lotID)+")";
             self._conn.execute(db_query)
             return True, "New report added."
         else:
