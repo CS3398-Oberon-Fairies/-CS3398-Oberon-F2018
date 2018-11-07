@@ -53,7 +53,7 @@ class ReportInterface:
         if len(lot_info) == 0:
             return False, "Parking lot does not exist"
         lotID = lot_info[0][0]
-        db_query = "SELECT * FROM report WHERE report='full' AND lot_id='"+lotID+"' AND TIMEDIFF(CURRENT_TIMESTAMP,timestamp) < TIMEDIFF(CURRENT_TIMESTAMP,CURRENT_TIMESTAMP-INTERVAL 1 HOUR) ORDER BY timestamp DESC";
+        db_query = "SELECT * FROM report WHERE report='full' AND lot_id="+str(lotID)+" AND TIMEDIFF(CURRENT_TIMESTAMP,timestamp) < TIMEDIFF(CURRENT_TIMESTAMP,CURRENT_TIMESTAMP-INTERVAL 1 HOUR) ORDER BY timestamp DESC";
         names, lots = self._conn.getResult(db_query)
         if len(lots) > 3:
             return True, lotName + " is full"
