@@ -27,6 +27,7 @@ The web app still runs locally, and requires the same steps from the first sprin
 The Login and registration pages correctly call the API to create user and session entries 
 in the Database. The Report functions also correctly call the API to create report entries 
 in the Database.
+Database server is up and ready to keep data synchronized across all users. It still needs to be implemented in code
 
 
 #### Building:
@@ -44,11 +45,12 @@ dependencies to run the API, as well as MySQL for the DB.
 - Alex: Create user feedback and improve design to support mobile
 - Patrick and ?: Extend the API for more features (such as social parking spot 
     reports of full lots, etc).
-- Gary and Rogelio: Finalize importing parking spots to DB from OSM.
+- Rogelio: Finalize importing parking spots to DB from OSM.
+- Gary: Help Alex with front-end and make changes with database whenever needed. Study up on JavaScript before next Sprint
 
 #### Parts:
 
 - Alex: ./front-end/*
-- Gary: ./DB/parkinglot.sql && ./DB/Main.mwb
+- Gary: ./DB/parkinglot.sql && ./DB/Main.mwb && ./DB/Server site 
 - Rogelio: ./DB/caching_san_marcos_parking_info/*
 - Patrick: ./api/*
