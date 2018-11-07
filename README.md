@@ -24,8 +24,9 @@ frontend (./front-end/prioritypark.html) should be able to connect to the API.
 *Completed all tasks that we planned, and the new features we added work*
 
 The web app still runs locally, and requires the same steps from the first sprint to run.
-The Login and registration pages work with the API and database successfully, 
-as do the report functions too.
+The Login and registration pages correctly call the API to create user and session entries 
+in the Database. The Report functions also correctly call the API to create report entries 
+in the Database.
 
 
 #### Building:
