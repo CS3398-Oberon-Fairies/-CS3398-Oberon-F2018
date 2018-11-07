@@ -40,17 +40,9 @@ dependencies to run the API, as well as MySQL for the DB.
     - mysql-connector
     
 
-#### Goals:
+#### Accomplishments:
 
 - Alex: Create user feedback and improve design to support mobile
-- Patrick and ?: Extend the API for more features (such as social parking spot 
-    reports of full lots, etc).
-- Rogelio: Finalize importing parking spots to DB from OSM.
+- Patrick: Extend the API for login and registration.
+- Rogelio: Extend the API for full, and empty reports. Query lot status endpoint.
 - Gary: Help Alex with front-end and make changes with database whenever needed. Study up on JavaScript before next Sprint
-
-#### Parts:
-
-- Alex: ./front-end/*
-- Gary: ./DB/parkinglot.sql && ./DB/Main.mwb && ./DB/Server site 
-- Rogelio: ./DB/caching_san_marcos_parking_info/*
-- Patrick: ./api/*
