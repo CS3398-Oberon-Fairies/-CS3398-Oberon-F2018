@@ -31,6 +31,7 @@
         <div class="btn-wrapper">
             <div class= "btn-group">
                 <form>
+                    <h2 id="triggered">...</h2>
                     <!--<input type="lotName" placeholder="Parkinglot Name" id="lotName">-->
                     <input type="button" value="Lot is full" id="full">
                     <input type="button" value="Lot is not full" id="notfull"><br>
@@ -110,15 +111,24 @@
             }
 
             function showMarker(poi, ae){
-                if(current_lot == null) current_lot = poi;
-                L.marker([poi[ae["Latitude"]], poi[ae["Longitude"]]]).addTo(map);
-                var pop = L.marker([poi[ae["Latitude"]], poi[ae["Longitude"]]]).addTo(map).bindPopup(poi[ae["LotName"]]);
+                if(current_lot == null){
+                    current_lot = poi;
+                    $("#triggered").html(current_lot[alias_encoding["LotName"]]);
+                }
+                var marker = L.marker([poi[ae["Latitude"]], poi[ae["Longitude"]]]);
+                var pop = marker.addTo(map).bindPopup(poi[ae["LotName"]]);
                 var dist = poi[ae["distance"]];
                 $("#list").append("<span class=\"element\" id=\"lot-"+poi[ae["Lot_id"]] + "\"><strong>"+poi[ae["LotName"]] + "</strong><span>" + (dist < 1 ? Math.round(dist*1000.0) : Math.round(dist) ) + (dist < 1 ? " m" : " km" ) + "</span></span>");
                 $("#lot-"+poi[ae["Lot_id"]]).bind("click", function(){
                     current_lot = poi;
+                    $("#triggered").html(current_lot[alias_encoding["LotName"]]);
                     pop.openPopup();
-                    console.log($("#map").offset().top);
+                    $(window).scrollTop($("#map").offset().top);
+                });
+                marker.on("popupopen", function(){
+                    current_lot = poi;
+                    $("#triggered").html(current_lot[alias_encoding["LotName"]]);
+                    pop.openPopup();
                     $(window).scrollTop($("#map").offset().top);
                 });
             }
