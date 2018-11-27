@@ -1,6 +1,8 @@
 ﻿<!DOCTYPE html>
 <html>
 <head> 
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
         
     <title>Priority Parking</title>
         
@@ -20,56 +22,62 @@
         <div class="heading">
             <h1>Priority Parking</h1>
         </div>
-        
-    <!-- Description -->
-        <div class="description">
-            Our goal is to help students, teachers, and other individuals find parking in an easier and more efficient manner.
+
+        <!-- Leaflet Map -->
+        <div id="map">
         </div>
-        
-    <!-- Report Status Button -->
+
+        <!-- Report Status Button -->
         <div class="btn-wrapper">
             <div class= "btn-group">
                 <form>
-                    <input type="lotName" placeholder="Parkinglot Name" id="lotName">
-                    <input type="button" onclick="full()" value="Lot is full">
-                    <input type="button" onclick="notFull()" value="Lot is not full"><br>
-                    <input type="button" onclick="checkStatus()" value="Check lot status">
-                    <p id="result"></p>
+                    <!--<input type="lotName" placeholder="Parkinglot Name" id="lotName">-->
+                    <input type="button" value="Lot is full" id="full">
+                    <input type="button" value="Lot is not full" id="notfull"><br>
+                    <!--<input type="button" onclick="checkStatus()" value="Check lot status">-->
                 </form>
             </div>
         </div> 
+
+        <div id="list"></div>
+
+        <!-- Footer -->
+        <div class="footer">
+            Team Oberon Fairies
+        </div>
+        
+    <!-- Description -->
+        <!--<div class="description">
+            Our goal is to help students, teachers, and other individuals find parking in an easier and more efficient manner.
+        </div>-->
         
     <!-- Report Status Script -->
-        <script type="text/javascript" src="../front-end/js/jquery-3.3.1.min.js"></script> 
         <script>
+
+            var loc = null;
+            var map = null;
+            var data_cache = [];
+            var current_lot = null;
+            var alias_encoding = null;
+            var current_marker = null;
+
             function full() {
                 var token = sessionStorage.getItem("userToken");
-                
-                var ln = document.getElementById("lotName").value;
-                document.getElementById("lotName").innerHTML = ln;    
-                
                 $.ajax("http://127.0.0.1:5000/report/report", {
                     "method": "POST",
-                    "data": {"lotName":ln, "lot_status":"full", "token": token},
+                    "data": {"lotName":current_lot[alias_encoding["LotName"]], "lot_status":"full", "token": token},
                     "success": function(data){
                         console.log("ATTEMPTED REPORT FULL");
                         console.log(data);
                     }
                 });
             }
-        </script>
-        
-        <script type="text/javascript" src="../front-end/js/jquery-3.3.1.min.js"></script> 
-        <script>
             
             function notFull() {
                 var token = sessionStorage.getItem("userToken");
-                
-                var ln = document.getElementById("lotName").value;    
-                
                 $.ajax("http://127.0.0.1:5000/report/report", {
                     "method": "POST",
-                    "data": {"lotName": ln, "lot_status": "not full", "token": token},
+                    "data": {"lotName": current_lot[alias_encoding["LotName"]], "lot_status": "not full", "token": token},
                     "success": function(data){
                         console.log("ATTEMPTED REPORT NOT FULL");
                         console.log(data);
@@ -77,15 +85,8 @@
                 });
             }
             
-        </script>
-        
-        <script type="text/javascript" src="../front-end/js/jquery-3.3.1.min.js"></script> 
-        <script>
-            
             function checkStatus() {
                 var ln = document.getElementById("lotName").value; 
-                
-                
                 $.ajax("http://127.0.0.1:5000/report/checkStatus", {
                     "method": "POST",
                     "data": {"lotName":ln},
@@ -95,46 +96,73 @@
                         var status = data["lot_status"];
                     }
                 });
-                
                 document.getElementById("result").innerHTML = "Parking lot " + ln + " is " + status + "...";
                 
             }
-        </script>     
-        
-    <!-- Leaflet Map -->
-        <div id="map">
-        </div>
-    
-    <!-- Leaflet Map Script -->
-        <script>            
-            
-            var mylat = '29.8833';
-            var mylong = '-97.9414';
-            var myzoom = '13';
-            var map = L.map('map').setView([mylat, mylong], myzoom);
-            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-	           maxZoom: 17,
-	           attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-            }).addTo(map);
 
-            function showMarker(poi, ae){
-	           L.marker([poi[ae["Latitude"]], poi[ae["Longitude"]]]).addTo(map);
-	           L.marker([poi[ae["Latitude"]], poi[ae["Longitude"]]]).addTo(map).bindPopup(poi[ae["LotName"]]);
+            function getLocation() {
+                if (navigator.geolocation) {
+                    navigator.geolocation.getCurrentPosition(function(position){
+                        loc = position.coords;
+                        moveMap();
+                    });
+                }
             }
 
-            $.getJSON("http://localhost:5000/location/search/" + mylat + "," + mylong, function(data){
-	           var alias_encoding = {};
-	           for(var it = 0; it < data.alias.length; it++) alias_encoding[data.alias[it]] = it;
-	           for(var it = 0; it < data.result.length; it++) showMarker(data.result[it], alias_encoding)
-            });
+            function showMarker(poi, ae){
+                if(current_lot == null) current_lot = poi;
+                L.marker([poi[ae["Latitude"]], poi[ae["Longitude"]]]).addTo(map);
+                var pop = L.marker([poi[ae["Latitude"]], poi[ae["Longitude"]]]).addTo(map).bindPopup(poi[ae["LotName"]]);
+                var dist = poi[ae["distance"]];
+                $("#list").append("<span class=\"element\" id=\"lot-"+poi[ae["Lot_id"]] + "\"><strong>"+poi[ae["LotName"]] + "</strong><span>" + (dist < 1 ? Math.round(dist*1000.0) : Math.round(dist) ) + (dist < 1 ? " m" : " km" ) + "</span></span>");
+                $("#lot-"+poi[ae["Lot_id"]]).bind("click", function(){
+                    current_lot = poi;
+                    pop.openPopup();
+                    console.log($("#map").offset().top);
+                    $(window).scrollTop($("#map").offset().top);
+                });
+            }
+
+            function moveMap(){
+                var mylat = '29.8833';
+                var mylong = '-97.9414';
+                if(loc != null){
+                    mylat = loc.latitude;
+                    mylong = loc.longitude;
+                }
+                map.setView([mylat, mylong], "13");
+                current_marker.remove();
+                current_marker = L.circle([mylat, mylong]).addTo(map);
+            }
+
+            function showMap(){
+                var mylat = '29.8833';
+                var mylong = '-97.9414';
+                if(loc != null){
+                    mylat = loc.latitude;
+                    mylong = loc.longitude;
+                }
+                var myzoom = '15';
+                map = L.map('map').setView([mylat, mylong], myzoom);
+                L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                   maxZoom: 17,
+                   attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+                }).addTo(map);
+                current_marker = L.circle([mylat, mylong]).addTo(map);
+                $.getJSON("http://localhost:5000/location/search/" + mylat + "," + mylong, function(data){
+                    data_cache = data;
+                    alias_encoding = {};
+                    for(var it = 0; it < data.alias.length; it++) alias_encoding[data.alias[it]] = it;
+                    for(var it = 0; it < data.result.length; it++) showMarker(data.result[it], alias_encoding)
+                });
+            }       
+            
+            showMap();
+            getLocation();
+            $("#full").bind("click", full);
+            $("#notfull").bind("click", notFull);
             
         </script>
-
-    <!-- Footer -->
-        <div class="footer">
-            Team Oberon Fairies
-        </div>
-        
         
     </div>
 
