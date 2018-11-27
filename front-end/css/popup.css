@@ -1,0 +1,32 @@
+#cover {
+            display:        none;
+            position:       absolute;
+            top: 40%;
+            left: 50%;
+            width: 25%;  
+            height: 30%; 
+            margin-left: -200px;   
+            margin-top: -200px; 
+            background:     gray;
+            filter:         alpha(Opacity = 50);
+            opacity:        0.5;
+            -moz-opacity:   0.5;
+            -khtml-opacity: 0.5
+        }
+  
+
+#regFail {
+            display:    none;
+            position:   absolute;
+            top: 50%;
+            left: 50%;
+            width: 200px;  
+            height: 50px; 
+            margin-left: -50px;   
+            margin-top: -50px;
+            z-index:    100;
+            background: white;
+            padding:    2px;
+            font:       10pt tahoma;
+            border:     1px solid gray
+        }

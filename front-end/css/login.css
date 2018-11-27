@@ -4,9 +4,14 @@
 
 
 .wrapper{
-    width: 210px;
+    position: absolute;
+    top:40%;
+    left:50%;
+    width:25%;  
+    height:40%; 
+    margin-left:-200px;   
+    margin-top:-200px;   
     background: transparent;
-    margin: 0 auto 0 auto;
     
 }
 
@@ -120,8 +125,6 @@
     margin-top: 10px;
     
 }
-
-
 
 
 
