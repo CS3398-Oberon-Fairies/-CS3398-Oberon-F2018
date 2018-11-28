@@ -105,7 +105,7 @@
                 if (navigator.geolocation) {
                     navigator.geolocation.getCurrentPosition(function(position){
                         loc = position.coords;
-                        moveMap();
+                        showMap();
                     });
                 }
             }
@@ -118,7 +118,7 @@
                 var marker = L.marker([poi[ae["Latitude"]], poi[ae["Longitude"]]]);
                 var pop = marker.addTo(map).bindPopup(poi[ae["LotName"]]);
                 var dist = poi[ae["distance"]];
-                $("#list").append("<span class=\"element\" id=\"lot-"+poi[ae["Lot_id"]] + "\"><strong>"+poi[ae["LotName"]] + "</strong><span>" + (dist < 1 ? Math.round(dist*1000.0) : Math.round(dist) ) + (dist < 1 ? " m" : " km" ) + "</span></span>");
+                $("#list").append("<span class=\"element\" id=\"lot-"+poi[ae["Lot_id"]] + "\"><strong>"+poi[ae["LotName"]] + "</strong><span>" + (dist < 1 ? Math.round(dist*1000.0) : Math.round(dist) ) + (dist < 1 ? " m" : " km" ) + " -</span><span id=\"status-"+poi[ae["Lot_id"]] + "\"></span></span>");
                 $("#lot-"+poi[ae["Lot_id"]]).bind("click", function(){
                     current_lot = poi;
                     $("#triggered").html(current_lot[alias_encoding["LotName"]]);
@@ -133,18 +133,6 @@
                 });
             }
 
-            function moveMap(){
-                var mylat = '29.8833';
-                var mylong = '-97.9414';
-                if(loc != null){
-                    mylat = loc.latitude;
-                    mylong = loc.longitude;
-                }
-                map.setView([mylat, mylong], "13");
-                current_marker.remove();
-                current_marker = L.circle([mylat, mylong]).addTo(map);
-            }
-
             function showMap(){
                 var mylat = '29.8833';
                 var mylong = '-97.9414';
@@ -153,17 +141,22 @@
                     mylong = loc.longitude;
                 }
                 var myzoom = '15';
-                map = L.map('map').setView([mylat, mylong], myzoom);
+                if(map == null) map = L.map('map').setView([mylat, mylong], myzoom);
+                else map.setView([mylat, mylong], "17");
                 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
                    maxZoom: 17,
                    attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
                 }).addTo(map);
+                if(current_marker != null) current_marker.remove();
                 current_marker = L.circle([mylat, mylong]).addTo(map);
                 $.getJSON("http://localhost:5000/location/search/" + mylat + "," + mylong, function(data){
+                    console.log(data);
                     data_cache = data;
                     alias_encoding = {};
+                    $("#list").html("");
                     for(var it = 0; it < data.alias.length; it++) alias_encoding[data.alias[it]] = it;
-                    for(var it = 0; it < data.result.length; it++) showMarker(data.result[it], alias_encoding)
+                    for(var it = 0; it < data.result.length; it++) showMarker(data.result[it], alias_encoding);
+
                 });
             }       
             

@@ -1,0 +1,10 @@
+<script type='text/javascript' src='js/jquery-3.3.1.min.js'></script>
+<script>
+
+    function getTheStatus(id){
+        $.getJSON("https://localhost/report/" + id, function(data){
+            console.log(data);
+        });
+    }
+
+</script>
