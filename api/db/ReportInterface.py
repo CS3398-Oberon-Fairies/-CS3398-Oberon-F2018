@@ -59,7 +59,19 @@ class ReportInterface:
             return True, lotName + " is full"
         else:
             return False, lotName + " is not full"
-
+        
+    # ==========================================================================
+    def getLatestReportTime(self, lotName):
+        labels, values = self.getparkingLot(lotName)
+        if len(values) == 0:
+            return False, "Parking lot does not exist"
+        lotID = values[0][0]
+        db_query = "SELECT * FROM report WHERE lot_id="+str(lotID)+" ORDER BY timestamp DESC";
+        names, reports = self._conn.getResult(db_query)
+        if len(reports) > 0:
+            return True, "Last reported time: " + reports[0][2]
+        else:
+            return False, "No report has been made for that lot"
 
 
 
