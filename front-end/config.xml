@@ -17,8 +17,7 @@
       Oberon
   </author>
 
-  </platform>
-	<platform name="android">
+  </platform name="android">
 	<preference name="SplashMaintainAspectRatio" value="true"/>
 	<preference name="SplashShowOnlyFirstTime" value="true"/>
 	<icon density="ldpi" src="res/icon/android/ldpi.png"/>
