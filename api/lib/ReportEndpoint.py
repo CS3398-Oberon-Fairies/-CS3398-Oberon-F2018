@@ -40,10 +40,27 @@ class ReportEndpoint(BasicEndpoint):
             "action": "checkStatus",
             "message": res
         })
-
+    
+    # ==========================================================================
+    def getRecentReportTime(self, form):
+        names, res = self._report_connection.getLatestReportTime(form["lotName"])
+        if not names: return json.dumps({
+            "status": "error",
+            "action": "getRecentReportTime",
+            "message": res
+        })
+        return json.dumps({
+            "status": "success",
+            "action": "getRecentReportTime",
+            "message": res
+        })
+    
     # ==========================================================================
     def post(self, params, args):
         if args["action"] == "report":
             return self.report(params.form)
         elif args["action"] == "checkStatus":
             return self.checkStatus(params.form)
+        elif args["action"] == "getRecentReportTime":
+            return self.getRecentReportTime(params.form)
+        

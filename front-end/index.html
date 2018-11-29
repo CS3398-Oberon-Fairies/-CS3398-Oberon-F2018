@@ -4,7 +4,84 @@
     <title>Login</title>
     
     <link href="css/login.css" type="text/css" rel="stylesheet">
+    <link href="css/popup.css" type="text/css" rel="stylesheet">
     <script type="text/javascript" src="../front-end/js/jquery-3.3.1.min.js"></script>
+    
+        <script type="text/javascript">
+    function showPopUp(el) {
+        var cvr = document.getElementById('cover')
+        var dlg = document.getElementById(el)
+        cvr.style.display = "block"
+        dlg.style.display = "block"
+        if (document.body.style.overflow = "hidden") {
+            cvr.style.width = "1024"
+            cvr.style.height = "100%"
+        }
+    }
+    function closePopUp(el) {
+        var cvr = document.getElementById('cover')
+        var dlg = document.getElementById(el)
+        cvr.style.display = "none"
+        dlg.style.display = "none"
+        document.body.style.overflowY = "scroll"
+    }
+        
+    function logFunction() {
+        var a = document.getElementById("eLog").value;
+        document.getElementById("eLog").innerHTML = a;
+        var b = document.getElementById("pLog").value;
+        document.getElementById("pLog").innerHTML = b;    
+        
+        if(a.length < 1){showPopUp('logFail');}
+        else if(b.length < 1){showPopUp('logFail');}
+        
+        if(a != "" && b != ""){
+                        
+            $.ajax("http://127.0.0.1:5000/social/login", {
+                "method": "POST",
+                "data": {"email": a, "password": b},
+                "success": function(data){
+                    console.log("ATTEMPTED LOGIN");
+                    console.log(data);
+                    sessionStorage.setItem = ("userToken", data["token"]);
+                    showPopUp('logPass');
+                }
+            });
+        }
+        
+    }
+        
+    function regFunction() {
+        var x = document.getElementById("eReg").value;
+        document.getElementById("eReg").innerHTML = x;
+        var y = document.getElementById("pReg").value;
+        document.getElementById("pReg").innerHTML = y;
+        var z = document.getElementById("pReg2").value;
+        document.getElementById("pReg2").innerHTML = z;
+        var test = false;
+        
+
+        if(x.length < 1){showPopUp('regFail2');}
+        else if(y.length < 1){showPopUp('regFail2');}
+        else if(z.length < 1){showPopUp('regFail2');}
+        
+        else if(y != z){showPopUp('regFail');}
+                
+        else if(x != "" && y != "" && z != ""){
+            test = true;
+            $.ajax("http://127.0.0.1:5000/social/register", {
+                "method": "POST",
+                "data": {"email": x, "password": y},
+                "success": function(data){
+                    console.log("ATTEMPTED REGISTRATION");
+                    console.log(data);
+                    showPopUp('regPass');
+                }
+            });
+        }
+    }        
+        
+    </script>
 </head>
 
 <body>
@@ -22,30 +99,6 @@
                 <input type="userlog" placeholder="email" id="eLog"><br>
                 <input type="passlog" placeholder="password" id="pLog"><br>
                 <input type="button" onclick="logFunction()" value="Login"><br>
-                 
-                <script type="text/javascript">
-                
-                    function logFunction() {
-                        var a = document.getElementById("eLog").value;
-                        document.getElementById("eLog").innerHTML = a;
-                        var b = document.getElementById("pLog").value;
-                        document.getElementById("pLog").innerHTML = b;
-                
-                        if(a != "" && b != ""){
-                        
-                        $.ajax("http://127.0.0.1:5000/social/login", {
-                            "method": "POST",
-                            "data": {"email": a, "password": b},
-                            "success": function(data){
-                                console.log("ATTEMPTED LOGIN");
-                                console.log(data);
-                                sessionStorage.setItem("userToken", data["token"]);
-                            }
-                        });
-                        }
-                    }
-                    
-                </script>
                 
             </form>
             </div>
@@ -62,31 +115,9 @@
             <form name="register">
                 <input type="userreg" placeholder="email" id="eReg"><br>
                 <input type="passreg" placeholder="password" id="pReg"><br>
+                <input type="passreg" placeholder="confirm password" id="pReg2"><br>
                 <input type="button" onclick="regFunction()" value="Register"><br>
                  
-                <script type="text/javascript">
-                
-                    function regFunction() {
-                        var x = document.getElementById("eReg").value;
-                        document.getElementById("eReg").innerHTML = x;
-                        var y = document.getElementById("pReg").value;
-                        document.getElementById("pReg").innerHTML = y;
-                
-                        if(x != "" && y != ""){
-                        
-                        $.ajax("http://127.0.0.1:5000/social/register", {
-                            "method": "POST",
-                            "data": {"email": x, "password": y},
-                            "success": function(data){
-                                console.log("ATTEMPTED REGISTRATION");
-                                console.log(data);
-                                
-                            }
-                        });
-                        }
-                    }
-                    
-                </script>
             </form>
             </div>
     
@@ -96,6 +127,37 @@
             <button>Go to Map!</button>
         </a> 
            
+   
+    
+    <div id="cover">
+    </div>
+        
+    <div id="logFail">
+        Fill in all entries to log in. 
+    <br><a href="#" onclick="closePopUp('logFail');">[Close]</a>
+    </div>              
+        
+    <div id="logPass">
+        You have successfully logged in. 
+    <br><a href="#" onclick="closePopUp('logPass');">[Close]</a>
+    </div>        
+        
+    <div id="regFail">
+        Please make sure both password entries match.
+    <br><a href="#" onclick="closePopUp('regFail');">[Close]</a>
+    </div>
+        
+    <div id="regFail2">
+        Fill in all entries to register.
+    <br><a href="#" onclick="closePopUp('regFail2');">[Close]</a>
+    </div>  
+    
+    <div id="regPass">
+        You have successfully registered.
+    <br><a href="#" onclick="closePopUp('regPass');">[Close]</a>
+    </div>    
+        
+    
     </div>
     
 </body>
