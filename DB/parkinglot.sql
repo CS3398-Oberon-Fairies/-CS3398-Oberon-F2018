@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Nov 15, 2018 at 11:18 PM
+-- Generation Time: Nov 29, 2018 at 11:37 PM
 -- Server version: 8.0.12
 -- PHP Version: 7.3.0RC1
 
@@ -105,6 +105,7 @@ INSERT INTO `parkinglot` (`Lot_id`, `LotName`, `SpacesTotal`, `SpacesLeft`, `Lat
 --
 
 CREATE TABLE `report` (
+  `report_id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
   `report` tinytext NOT NULL,
   `timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
@@ -151,7 +152,7 @@ ALTER TABLE `parkinglot`
 -- Indexes for table `report`
 --
 ALTER TABLE `report`
-  ADD PRIMARY KEY (`lot_id`);
+  ADD PRIMARY KEY (`report_id`);
 
 --
 -- Indexes for table `sessions`
@@ -174,6 +175,12 @@ ALTER TABLE `users`
 --
 ALTER TABLE `parkinglot`
   MODIFY `Lot_id` smallint(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=58;
+
+--
+-- AUTO_INCREMENT for table `report`
+--
+ALTER TABLE `report`
+  MODIFY `report_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `sessions`
