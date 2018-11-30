@@ -35,7 +35,7 @@
 	<splash density="port-xxhdpi" src="res/screen/android/splash-port-xxhdpi.png"/>
 	<splash density="port-xxxhdpi" src="res/screen/android/splash-port-xxxhdpi.png"/>
 	 
-	<plugin name="cordova plugin whiteliste" source="npm"/>
+	<plugin name="cordova-plugin-whitelist" source="npm"/>
 	 
 	<!--/platform-->
 
