@@ -69,7 +69,7 @@ class ReportInterface:
         db_query = "SELECT * FROM report WHERE lot_id="+str(lotID)+" ORDER BY timestamp DESC";
         names, reports = self._conn.getResult(db_query)
         if len(reports) > 0:
-            return True, "Last reported time: " + reports[0][2]
+            return True, reports[0][2]
         else:
             return False, "No report has been made for that lot"
 
