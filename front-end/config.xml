@@ -17,7 +17,7 @@
       Oberon
   </author>
 	
-	<!--platform-->
+	<platform>
 	<!--platform name="android"/-->
 	<preference name="SplashMaintainAspectRatio" value="true"/>
 	<preference name="SplashShowOnlyFirstTime" value="true"/>
@@ -45,6 +45,6 @@
 			<splash density="land-xxxhdpi" src="res/screen/android/splash-land-xxxhdpi.png"/>
 			
 	-->
-	<!--/platform-->
+	</platform>
 
 </widget>
