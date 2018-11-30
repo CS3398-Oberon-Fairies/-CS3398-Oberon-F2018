@@ -119,6 +119,24 @@
                     }
                 });
             }
+            
+            function getTheTime(ln) {
+                $.ajax("http://127.0.0.1:5000/report/getRecentReportTime", {
+                    "method": "POST",
+                    "data": {"lotName":ln},
+                    "success": function(data){
+                        console.log("ATTEMPTED STATUS CHECK");
+                        console.log(data);
+        		        if (data.status == "error") {
+                            console.log("No Report has been made");
+                            $("#time-" + data.message).html("").css({"color":"green"});
+                        } else {
+                            console.log("Recent Time:");
+                            $("#time-" + data.message).html("").css({"color":"red"});
+                        }
+                    }
+                });
+            }
 
             function getLocation() {
                 if (navigator.geolocation) {
