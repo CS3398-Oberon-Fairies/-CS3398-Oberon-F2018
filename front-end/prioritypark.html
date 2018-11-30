@@ -1,23 +1,23 @@
 ﻿<!DOCTYPE html>
 <html>
-<head>
+<head> 
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-
+        
     <title>Priority Parking</title>
-
+        
     <link href="css/style.css" type="text/css" rel="stylesheet">
     <link href="css/leaflet.css" type="text/css" rel="stylesheet">
-
+        
     <script type='text/javascript' src='js/jquery-3.3.1.min.js'></script>
     <script type='text/javascript' src='js/leaflet.js'></script>
-
-
+        
+              
 </head>
 <body>
-
+        
     <div class="wrapper">
-
+        
     <!-- Title -->
         <div class="heading">
             <h1>Priority Parking</h1>
@@ -38,7 +38,7 @@
                     <!--<input type="button" onclick="checkStatus()" value="Check lot status">-->
                 </form>
             </div>
-        </div>
+        </div> 
 
         <div id="list"></div>
 
@@ -46,12 +46,12 @@
         <div class="footer">
             Team Oberon Fairies
         </div>
-
+        
     <!-- Description -->
         <!--<div class="description">
             Our goal is to help students, teachers, and other individuals find parking in an easier and more efficient manner.
         </div>-->
-
+        
     <!-- Report Status Script -->
         <script>
 
@@ -73,7 +73,7 @@
                     }
                 });
             }
-
+            
             function notFull() {
                 var token = sessionStorage.getItem("userToken");
                 $.ajax("http://127.0.0.1:5000/report/report", {
@@ -85,9 +85,9 @@
                     }
                 });
             }
-
+            
             function checkStatus() {
-                var ln = document.getElementById("lotName").value;
+                var ln = document.getElementById("lotName").value; 
                 $.ajax("http://127.0.0.1:5000/report/checkStatus", {
                     "method": "POST",
                     "data": {"lotName":ln},
@@ -98,7 +98,7 @@
                     }
                 });
                 document.getElementById("result").innerHTML = "Parking lot " + ln + " is " + status + "...";
-
+                
             }
 
             function getLocation() {
@@ -158,15 +158,15 @@
                     for(var it = 0; it < data.result.length; it++) showMarker(data.result[it], alias_encoding);
 
                 });
-            }
-
+            }       
+            
             showMap();
             getLocation();
             $("#full").bind("click", full);
             $("#notfull").bind("click", notFull);
-
+            
         </script>
-
+        
     </div>
 
 </body>
