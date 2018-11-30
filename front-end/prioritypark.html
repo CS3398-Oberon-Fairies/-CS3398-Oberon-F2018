@@ -100,6 +100,25 @@
                 document.getElementById("result").innerHTML = "Parking lot " + ln + " is " + status + "...";
                 
             }
+            
+            function getTheStatus(ln) {
+                $.ajax("http://127.0.0.1:5000/report/checkStatus", {
+                    "method": "POST",
+                    "data": {"lotName":ln},
+                    "success": function(data){
+                        console.log("ATTEMPTED STATUS CHECK");
+                        console.log(data);
+                        var status = data["lot_status"];
+        		        if (data.status == "error") {
+                            console.log("Lot not full");
+                            $("#status-" + data.message).html(" AVAILABLE").css({"color":"green"});
+                        } else {
+                            console.log("Lot is full");
+                            $("#status-" + data.message).html(" FULL").css({"color":"red"});
+                        }
+                    }
+                });
+            }
 
             function getLocation() {
                 if (navigator.geolocation) {
@@ -131,6 +150,7 @@
                     pop.openPopup();
                     $(window).scrollTop($("#map").offset().top);
                 });
+                getTheStatus(current_lot[alias_encoding["LotName"]]);
             }
 
             function showMap(){
