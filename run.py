@@ -1,4 +1,6 @@
 
+import sys
+
 from api.main import BasicAPI
 from api.lib.PingEndpoint import PingEndpoint
 from api.lib.SearchLatLon import SearchLatLon
@@ -8,7 +10,7 @@ from api.lib.SocialEndpoint import SocialEndpoint
 from api.lib.ReportEndpoint import ReportEndpoint
 
 ################################################################################
-CONN = BasicConnection("id7697898_app", "connect", "databases.000webhost.com", "pp")
+CONN = BasicConnection("p_g149", "1Ae(8DaEe#5E0F9(", "db4free.net", "prioritypark")
 
 ################################################################################
 def main(argv):
