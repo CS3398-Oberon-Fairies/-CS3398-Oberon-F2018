@@ -36,7 +36,7 @@
 	<splash density="port-xxxhdpi" src="res/screen/android/splash-port-xxxhdpi.png"/>
 	 
 	<plugin name="cordova-plugin-whitelist" source="npm"/>
-	<plugin name="Geolocation" value="org.apache.cordova.GeoBroker"/>
+	<plugin name="cordova-plugin-geolocation" source="npm"/>
 	 
 	<!--/platform-->
 
