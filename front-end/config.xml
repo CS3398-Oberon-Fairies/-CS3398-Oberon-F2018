@@ -37,6 +37,10 @@
 	 
 	<plugin name="cordova-plugin-whitelist" source="npm"/>
 	<plugin name="cordova-plugin-geolocation" source="npm"/>
+	<allow-navigation href="*" />
+	<allow-intent href="*" />
+	<access origin="*" />
+	
 	 
 	<!--/platform-->
 
