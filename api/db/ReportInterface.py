@@ -55,7 +55,7 @@ class ReportInterface:
         lotID = lot_info[0][0]
         db_query = "SELECT * FROM report WHERE report='full' AND lot_id="+str(lotID)+" AND TIMEDIFF(CURRENT_TIMESTAMP,timestamp) < TIMEDIFF(CURRENT_TIMESTAMP,CURRENT_TIMESTAMP-INTERVAL 1 HOUR) ORDER BY timestamp DESC";
         names, lots = self._conn.getResult(db_query)
-        if len(lots) == 3:
+        if len(lots) >= 3:
             return True, str(lotID)
         else:
             return False, str(lotID)
