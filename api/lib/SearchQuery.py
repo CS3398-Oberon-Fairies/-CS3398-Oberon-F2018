@@ -1,7 +1,7 @@
 
-from lib.BasicEndpoint import BasicEndpoint
+from api.lib.BasicEndpoint import BasicEndpoint
 import json
-from db.SearchInterface import SearchInterface
+from api.db.SearchInterface import SearchInterface
 from urllib.parse import unquote
 
 class SearchQuery(BasicEndpoint):

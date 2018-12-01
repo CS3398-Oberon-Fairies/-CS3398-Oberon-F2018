@@ -3,7 +3,7 @@ import urllib.request
 import json
 import hashlib
 import uuid
-from db.SocialInterface import SocialInterface
+from api.db.SocialInterface import SocialInterface
 
 class ReportInterface:
 
