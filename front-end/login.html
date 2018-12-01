@@ -1,94 +1,117 @@
 <!DOCTYPE html>
 <html>
 <head>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
     <title>Login</title>
     
+    <link href="css/style.css" type="text/css" rel="stylesheet">
     <link href="css/login.css" type="text/css" rel="stylesheet">
     <link href="css/popup.css" type="text/css" rel="stylesheet">
     <script type="text/javascript" src="../front-end/js/jquery-3.3.1.min.js"></script>
-    
-        <script type="text/javascript">
-    function showPopUp(el) {
-        var cvr = document.getElementById('cover')
-        var dlg = document.getElementById(el)
-        cvr.style.display = "block"
-        dlg.style.display = "block"
-        if (document.body.style.overflow = "hidden") {
-            cvr.style.width = "1024"
-            cvr.style.height = "100%"
-        }
-    }
-    function closePopUp(el) {
-        var cvr = document.getElementById('cover')
-        var dlg = document.getElementById(el)
-        cvr.style.display = "none"
-        dlg.style.display = "none"
-        document.body.style.overflowY = "scroll"
-    }
-        
-    function logFunction() {
-        var a = document.getElementById("eLog").value;
-        document.getElementById("eLog").innerHTML = a;
-        var b = document.getElementById("pLog").value;
-        document.getElementById("pLog").innerHTML = b;    
-        
-        if(a.length < 1){showPopUp('logFail');}
-        else if(b.length < 1){showPopUp('logFail');}
-        
-        if(a != "" && b != ""){
-                        
-            $.ajax("http://127.0.0.1:5000/social/login", {
-                "method": "POST",
-                "data": {"email": a, "password": b},
-                "success": function(data){
-                    console.log("ATTEMPTED LOGIN");
-                    console.log(data);
-                    sessionStorage.setItem = ("userToken", data["token"]);
-                    showPopUp('logPass');
-                }
-            });
-        }
-        
-    }
-        
-    function regFunction() {
-        var x = document.getElementById("eReg").value;
-        document.getElementById("eReg").innerHTML = x;
-        var y = document.getElementById("pReg").value;
-        document.getElementById("pReg").innerHTML = y;
-        var z = document.getElementById("pReg2").value;
-        document.getElementById("pReg2").innerHTML = z;
-        var test = false;
-        
 
-        if(x.length < 1){showPopUp('regFail2');}
-        else if(y.length < 1){showPopUp('regFail2');}
-        else if(z.length < 1){showPopUp('regFail2');}
-        
-        else if(y != z){showPopUp('regFail');}
-                
-        else if(x != "" && y != "" && z != ""){
-            test = true;
-            $.ajax("http://127.0.0.1:5000/social/register", {
-                "method": "POST",
-                "data": {"email": x, "password": y},
-                "success": function(data){
-                    console.log("ATTEMPTED REGISTRATION");
-                    console.log(data);
-                    showPopUp('regPass');
-                }
-            });
+    <script type="text/javascript">
+
+        function showPopUp(el) {
+            var cvr = document.getElementById('cover')
+            var dlg = document.getElementById(el)
+            cvr.style.display = "block"
+            dlg.style.display = "block"
+            if (document.body.style.overflow = "hidden") {
+                cvr.style.width = "1024"
+                cvr.style.height = "100%"
+            }
         }
-    }        
+        function closePopUp(el) {
+            var cvr = document.getElementById('cover')
+            var dlg = document.getElementById(el)
+            cvr.style.display = "none"
+            dlg.style.display = "none"
+            document.body.style.overflowY = "scroll"
+        }
+            
+        function logFunction() {
+            var a = document.getElementById("eLog").value;
+            document.getElementById("eLog").innerHTML = a;
+            var b = document.getElementById("pLog").value;
+            document.getElementById("pLog").innerHTML = b;    
+            
+            if(a.length < 1){showPopUp('logFail');}
+            else if(b.length < 1){showPopUp('logFail');}
+            
+            if(a != "" && b != ""){
+                            
+                $.ajax("http://ec2-34-215-176-96.us-west-2.compute.amazonaws.com/social/login", {
+                    "method": "POST",
+                    "data": {"email": a, "password": b},
+                    "success": function(data){
+                        if(data["status"] == "error"){
+                            showPopUp('logFail');
+                            return;
+                        }
+                        console.log("ATTEMPTED LOGIN");
+                        console.log(data);
+                        localStorage.setItem = ("userToken", data["token"]);
+                        showPopUp('logPass');
+                        //window.location = "prioritypark.html"
+                    },
+                    error: function(){
+                        showPopUp('logFail');
+                    }
+                });
+            }
+            
+        }
+            
+        function regFunction() {
+            var x = document.getElementById("eReg").value;
+            document.getElementById("eReg").innerHTML = x;
+            var y = document.getElementById("pReg").value;
+            document.getElementById("pReg").innerHTML = y;
+            var z = document.getElementById("pReg2").value;
+            document.getElementById("pReg2").innerHTML = z;
+            var test = false;
+            
+
+            if(x.length < 1){showPopUp('regFail2');}
+            else if(y.length < 1){showPopUp('regFail2');}
+            else if(z.length < 1){showPopUp('regFail2');}
+            
+            else if(y != z){showPopUp('regFail');}
+                    
+            else if(x != "" && y != "" && z != ""){
+                test = true;
+                $.ajax("http://ec2-34-215-176-96.us-west-2.compute.amazonaws.com/social/register", {
+                    "method": "POST",
+                    "data": {"email": x, "password": y},
+                    "success": function(data){
+                        if(data["status"] == "error"){
+                            showPopUp('regFail2');
+                            return;
+                        }
+                        console.log("ATTEMPTED REGISTRATION");
+                        console.log(data);
+                        showPopUp('regPass');
+                    },
+                    error: function(){
+                        showPopUp('regFail2');
+                    }
+                });
+            }
+        }        
         
     </script>
+
 </head>
 
 <body>
     
     <div class="wrapper">
         
-        <div class="top">Priority Parking User Login/Registration</div>
+        <div class="heading">
+            <h1>Priority Parking</h1>
+        </div>
         
         <div class="login">
             <div class="logheader">
@@ -122,11 +145,6 @@
             </div>
     
         </div>
-        
-        <a href="prioritypark.html">
-            <button>Go to Map!</button>
-        </a> 
-           
    
     
     <div id="cover">
