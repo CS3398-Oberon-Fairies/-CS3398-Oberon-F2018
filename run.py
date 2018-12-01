@@ -22,4 +22,4 @@ def main(argv):
         api.addEndpoint(ReportEndpoint(CONN), methods=["POST"])
         api.runServer(debug=True)
 
-main(sys.argv[1:])
+main(sys.argv[1:]).run()

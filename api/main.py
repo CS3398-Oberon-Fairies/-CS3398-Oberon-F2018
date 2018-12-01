@@ -38,7 +38,7 @@ class BasicAPI:
 	# ==========================================================================
 	def runServer(self, host="127.0.0.1", debug=True):
 
-		runs = self._app.run(debug=debug, host=host)
+		return self._app
 
 	# ==========================================================================
 	def loadRoutes(self):
