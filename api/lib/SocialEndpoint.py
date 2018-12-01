@@ -1,8 +1,8 @@
 
 from flask import request
 import json
-from lib.BasicEndpoint import BasicEndpoint
-from db.SocialInterface import SocialInterface
+from api.lib.BasicEndpoint import BasicEndpoint
+from api.db.SocialInterface import SocialInterface
 
 class SocialEndpoint(BasicEndpoint):
 

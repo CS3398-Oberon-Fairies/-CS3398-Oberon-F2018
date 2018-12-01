@@ -3,7 +3,7 @@ import urllib.request
 import json
 import hashlib
 import uuid
-from db.SocialInterface import SocialInterface
+from api.db.SocialInterface import SocialInterface
 
 class ReportInterface:
 
@@ -55,10 +55,10 @@ class ReportInterface:
         lotID = lot_info[0][0]
         db_query = "SELECT * FROM report WHERE report='full' AND lot_id="+str(lotID)+" AND TIMEDIFF(CURRENT_TIMESTAMP,timestamp) < TIMEDIFF(CURRENT_TIMESTAMP,CURRENT_TIMESTAMP-INTERVAL 1 HOUR) ORDER BY timestamp DESC";
         names, lots = self._conn.getResult(db_query)
-        if len(lots) > 3:
-            return True, lotName + " is full"
+        if len(lots) == 3:
+            return True, str(lotID)
         else:
-            return False, lotName + " is not full"
+            return False, str(lotID)
         
     # ==========================================================================
     def getLatestReportTime(self, lotName):
@@ -69,7 +69,7 @@ class ReportInterface:
         db_query = "SELECT * FROM report WHERE lot_id="+str(lotID)+" ORDER BY timestamp DESC";
         names, reports = self._conn.getResult(db_query)
         if len(reports) > 0:
-            return True, "Last reported time: " + reports[0][2]
+            return True, reports[0][2]
         else:
             return False, "No report has been made for that lot"
 

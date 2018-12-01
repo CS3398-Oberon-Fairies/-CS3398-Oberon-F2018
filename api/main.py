@@ -1,11 +1,5 @@
 
 from flask import Flask
-from lib.PingEndpoint import PingEndpoint
-from lib.SearchLatLon import SearchLatLon
-from lib.SearchQuery import SearchQuery
-from db.BasicConnection import BasicConnection
-from lib.SocialEndpoint import SocialEndpoint
-from lib.ReportEndpoint import ReportEndpoint
 import sys
 
 ################################################################################
@@ -44,34 +38,10 @@ class BasicAPI:
 	# ==========================================================================
 	def runServer(self, host="127.0.0.1", debug=True):
 
-		runs = self._app.run(debug=debug, host=host)
+		return self._app
 
 	# ==========================================================================
 	def loadRoutes(self):
 
 		# TODO: load routers from configuration
 		return -1	
-
-################################################################################
-try:
-	CONN = BasicConnection("root", "m4p8v3p7g6", "127.0.0.1", "pp")
-except:
-	print("[ERROR] Could not establish DB connection.")
-	exit(1)
-
-def main(argv):
-
-	if argv[0] == "test":
-		api = BasicAPI()
-		api.addEndpoint(PingEndpoint())
-		api.addEndpoint(SearchLatLon(CONN))
-		api.addEndpoint(SearchQuery(CONN))
-		api.addEndpoint(SocialEndpoint(CONN), methods=["POST"])
-		api.addEndpoint(ReportEndpoint(CONN), methods=["POST"])
-		api.runServer(debug=True)
-	elif argv[0] == "run":
-		api = BasicAPI()
-		api.loadRoutes()
-		api.runServer(debug=False)
-
-main(sys.argv[1:])

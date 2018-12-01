@@ -61,10 +61,12 @@
             var current_lot = null;
             var alias_encoding = null;
             var current_marker = null;
+            var requests = 0;
+            var lots = [];
 
             function full() {
-                var token = sessionStorage.getItem("userToken");
-                $.ajax("http://127.0.0.1:5000/report/report", {
+                var token = localStorage.getItem("userToken");
+                $.ajax("http://ec2-34-215-176-96.us-west-2.compute.amazonaws.com/report/report", {
                     "method": "POST",
                     "data": {"lotName":current_lot[alias_encoding["LotName"]], "lot_status":"full", "token": token},
                     "success": function(data){
@@ -75,8 +77,8 @@
             }
             
             function notFull() {
-                var token = sessionStorage.getItem("userToken");
-                $.ajax("http://127.0.0.1:5000/report/report", {
+                var token = localStorage.getItem("userToken");
+                $.ajax("http://ec2-34-215-176-96.us-west-2.compute.amazonaws.com/report/report", {
                     "method": "POST",
                     "data": {"lotName": current_lot[alias_encoding["LotName"]], "lot_status": "not full", "token": token},
                     "success": function(data){
@@ -88,7 +90,7 @@
             
             function checkStatus() {
                 var ln = document.getElementById("lotName").value; 
-                $.ajax("http://127.0.0.1:5000/report/checkStatus", {
+                $.ajax("http://ec2-34-215-176-96.us-west-2.compute.amazonaws.com/report/checkStatus", {
                     "method": "POST",
                     "data": {"lotName":ln},
                     "success": function(data){
@@ -99,6 +101,45 @@
                 });
                 document.getElementById("result").innerHTML = "Parking lot " + ln + " is " + status + "...";
                 
+            }
+            
+            function getTheStatus(ln) {
+                requests++;
+                $.ajax("http://ec2-34-215-176-96.us-west-2.compute.amazonaws.com/report/checkStatus", {
+                    "method": "POST",
+                    "data": {"lotName":ln},
+                    "success": function(data){
+                        requests--;
+                        console.log("ATTEMPTED STATUS CHECK");
+                        console.log(data);
+                        var status = data["lot_status"];
+        		        if (data.status == "error") {
+                            console.log("Lot not full");
+                            $("#status-" + data.message).html(" AVAILABLE").css({"color":"green"});
+                        } else {
+                            console.log("Lot is full");
+                            $("#status-" + data.message).html(" FULL").css({"color":"red"});
+                        }
+                    }
+                });
+            }
+            
+            function getTheTime(ln) {
+                $.ajax("http://ec2-34-215-176-96.us-west-2.compute.amazonaws.com/report/getRecentReportTime", {
+                    "method": "POST",
+                    "data": {"lotName":ln},
+                    "success": function(data){
+                        console.log("ATTEMPTED STATUS CHECK");
+                        console.log(data);
+        		        if (data.status == "error") {
+                            console.log("No Report has been made");
+                            $("#time-" + data.message).html("").css({"color":"green"});
+                        } else {
+                            console.log("Recent Time:");
+                            $("#time-" + data.message).html("").css({"color":"red"});
+                        }
+                    }
+                });
             }
 
             function getLocation() {
@@ -131,6 +172,15 @@
                     pop.openPopup();
                     $(window).scrollTop($("#map").offset().top);
                 });
+                getTheStatus(poi[ae["LotName"]]);
+                lots.push(poi[ae["LotName"]]);
+            }
+
+            function reloadStatus(){
+                if(requests != 0) return;
+                for(var it = 0; it < lots.length; it++){
+                    getTheStatus(lots[it]);
+                }
             }
 
             function showMap(){
@@ -149,14 +199,14 @@
                 }).addTo(map);
                 if(current_marker != null) current_marker.remove();
                 current_marker = L.circle([mylat, mylong]).addTo(map);
-                $.getJSON("http://localhost:5000/location/search/" + mylat + "," + mylong, function(data){
+                lots = [];
+                $.getJSON("http://ec2-34-215-176-96.us-west-2.compute.amazonaws.com/location/search/" + mylat + "," + mylong, function(data){
                     console.log(data);
                     data_cache = data;
                     alias_encoding = {};
                     $("#list").html("");
                     for(var it = 0; it < data.alias.length; it++) alias_encoding[data.alias[it]] = it;
                     for(var it = 0; it < data.result.length; it++) showMarker(data.result[it], alias_encoding);
-
                 });
             }       
             
@@ -164,6 +214,7 @@
             getLocation();
             $("#full").bind("click", full);
             $("#notfull").bind("click", notFull);
+            setInterval(reloadStatus, 1000);
             
         </script>
         
