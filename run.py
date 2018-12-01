@@ -20,6 +20,6 @@ def main(argv):
         api.addEndpoint(SearchQuery(CONN))
         api.addEndpoint(SocialEndpoint(CONN), methods=["POST"])
         api.addEndpoint(ReportEndpoint(CONN), methods=["POST"])
-        api.runServer(debug=True)
+        return api.runServer(debug=True)
 
 main(sys.argv[1:]).run()
