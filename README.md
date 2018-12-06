@@ -41,7 +41,11 @@ dependencies to run the API, as well as MySQL for the DB.
     - json
     - mysql-connector
     
-The "run.py" file may need to be updated to reflect the DB connection parameters.
+The "run.py" file may need to be updated to reflect the DB connection parameters. The API can now be run as:
+
+    python run.py
+
+Then `index.html` can be opened in the browser.
 
 #### Notes:
 
