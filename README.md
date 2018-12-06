@@ -31,6 +31,7 @@ Database server is up and ready to keep data synchronized across all users. It s
 
 # Sprint 3
 
+The web app is capable of running on a server, but it must be manually restarted each day so we reverted it back to run locally. User feedback has been added to both the login page(incorrect/correct login notifications) and the map display page (when connected to api will show lots according to their name and whether or not they're full). The GUI for both the login and main html was updated to be suitable for mobile use.
 
 #### Building:
 
