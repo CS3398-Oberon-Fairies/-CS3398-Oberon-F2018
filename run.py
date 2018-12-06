@@ -10,7 +10,8 @@ from api.lib.SocialEndpoint import SocialEndpoint
 from api.lib.ReportEndpoint import ReportEndpoint
 
 ################################################################################
-CONN = BasicConnection("p_g149", "1Ae(8DaEe#5E0F9(", "db4free.net", "prioritypark")
+# CONN = BasicConnection("p_g149", "1Ae(8DaEe#5E0F9(", "db4free.net", "prioritypark")
+CONN = BasicConnection("root", "m4p8v3p7g6", "localhost", "pp")
 
 ################################################################################
 def main(argv):
@@ -21,5 +22,5 @@ def main(argv):
         api.addEndpoint(SocialEndpoint(CONN), methods=["POST"])
         api.addEndpoint(ReportEndpoint(CONN), methods=["POST"])
         return api.runServer(debug=True)
-
-main(sys.argv[1:]).run(host='0.0.0.0', port=80, threaded=False)
+#main(sys.argv[1:]).run(host='0.0.0.0', port=80, threaded=False)
+main(sys.argv[1:]).run(threaded=False)

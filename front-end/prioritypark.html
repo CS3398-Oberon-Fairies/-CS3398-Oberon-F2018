@@ -11,8 +11,7 @@
         
     <script type='text/javascript' src='js/jquery-3.3.1.min.js'></script>
     <script type='text/javascript' src='js/leaflet.js'></script>
-        
-              
+               
 </head>
 <body>
         
@@ -66,7 +65,8 @@
 
             function full() {
                 var token = localStorage.getItem("userToken");
-                $.ajax("http://ec2-34-215-176-96.us-west-2.compute.amazonaws.com/report/report", {
+                //$.ajax("http://ec2-34-215-176-96.us-west-2.compute.amazonaws.com/report/report", {
+                $.ajax("http://localhost:5000/report/report", {
                     "method": "POST",
                     "data": {"lotName":current_lot[alias_encoding["LotName"]], "lot_status":"full", "token": token},
                     "success": function(data){
@@ -78,7 +78,8 @@
             
             function notFull() {
                 var token = localStorage.getItem("userToken");
-                $.ajax("http://ec2-34-215-176-96.us-west-2.compute.amazonaws.com/report/report", {
+                //$.ajax("http://ec2-34-215-176-96.us-west-2.compute.amazonaws.com/report/report", {
+                $.ajax("http://localhost:5000/report/report", {
                     "method": "POST",
                     "data": {"lotName": current_lot[alias_encoding["LotName"]], "lot_status": "not full", "token": token},
                     "success": function(data){
@@ -90,7 +91,8 @@
             
             function checkStatus() {
                 var ln = document.getElementById("lotName").value; 
-                $.ajax("http://ec2-34-215-176-96.us-west-2.compute.amazonaws.com/report/checkStatus", {
+                //$.ajax("http://ec2-34-215-176-96.us-west-2.compute.amazonaws.com/report/checkStatus", {
+                $.ajax("http://localhost:5000/report/checkStatus", {
                     "method": "POST",
                     "data": {"lotName":ln},
                     "success": function(data){
@@ -105,7 +107,8 @@
             
             function getTheStatus(ln) {
                 requests++;
-                $.ajax("http://ec2-34-215-176-96.us-west-2.compute.amazonaws.com/report/checkStatus", {
+                //$.ajax("http://ec2-34-215-176-96.us-west-2.compute.amazonaws.com/report/checkStatus", {
+                $.ajax("http://localhost:5000/report/checkStatus", {
                     "method": "POST",
                     "data": {"lotName":ln},
                     "success": function(data){
@@ -200,7 +203,8 @@
                 if(current_marker != null) current_marker.remove();
                 current_marker = L.circle([mylat, mylong]).addTo(map);
                 lots = [];
-                $.getJSON("http://ec2-34-215-176-96.us-west-2.compute.amazonaws.com/location/search/" + mylat + "," + mylong, function(data){
+                //$.getJSON("http://ec2-34-215-176-96.us-west-2.compute.amazonaws.com/location/search/" + mylat + "," + mylong, function(data){
+                $.getJSON("http://localhost:5000/location/search/" + mylat + "," + mylong, function(data){
                     console.log(data);
                     data_cache = data;
                     alias_encoding = {};

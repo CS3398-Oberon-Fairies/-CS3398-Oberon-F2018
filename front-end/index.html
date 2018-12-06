@@ -43,7 +43,8 @@
             
             if(a != "" && b != ""){
                             
-                $.ajax("http://ec2-34-215-176-96.us-west-2.compute.amazonaws.com/social/login", {
+                //$.ajax("http://ec2-34-215-176-96.us-west-2.compute.amazonaws.com/social/login", {
+                $.ajax("http://localhost:5000/social/login", {
                     "method": "POST",
                     "data": {"email": a, "password": b},
                     "success": function(data){
@@ -83,7 +84,8 @@
                     
             else if(x != "" && y != "" && z != ""){
                 test = true;
-                $.ajax("http://ec2-34-215-176-96.us-west-2.compute.amazonaws.com/social/register", {
+                //$.ajax("http://ec2-34-215-176-96.us-west-2.compute.amazonaws.com/social/register", {
+                $.ajax("http://localhost:5000/social/register", {
                     "method": "POST",
                     "data": {"email": x, "password": y},
                     "success": function(data){
