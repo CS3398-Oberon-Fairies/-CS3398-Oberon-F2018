@@ -49,7 +49,7 @@ While we tried to move the API to AWS, we decided to go with a free MySQL databa
 
 #### Accomplishments:
 
-- Alex: Create user feedback and improve design to support mobile
+- Alex: Made quality of life changes to the file 'login.html' which is located in the 'front-end' folder, the changes which I added are a confirm password box and multiple checks to prevent potential user errors from occuring and to give feedback. I also added 'popup.css' which is located in the 'front-end/css' and was used for creating user feedback.
 - Patrick: Worked on the frontend and backend to display all the lots in an ordered list. When opened, the nearest lot is the assumed to be the target. Additionally made the list interactable with the map (as well as the other way around), meaning that lots can be selected as targets from the map and the list. Moved the API to AWS, so the app has a remote location to pull information from. 
 - Rogelio: Extend the API for full, and empty reports. Query lot status endpoint.
 - Gary: Help Alex with front-end and make changes with database whenever needed. Study up on JavaScript before next Sprint
