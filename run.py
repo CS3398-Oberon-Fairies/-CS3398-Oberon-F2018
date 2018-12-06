@@ -11,7 +11,7 @@ from api.lib.ReportEndpoint import ReportEndpoint
 
 ################################################################################
 # CONN = BasicConnection("p_g149", "1Ae(8DaEe#5E0F9(", "db4free.net", "prioritypark")
-CONN = BasicConnection("root", "m4p8v3p7g6", "localhost", "pp")
+CONN = BasicConnection("root", "", "localhost", "pp")
 
 ################################################################################
 def main(argv):
