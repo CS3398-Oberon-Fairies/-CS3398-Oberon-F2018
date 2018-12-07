@@ -63,7 +63,7 @@ While we tried to move the API to AWS, we decided to go with a free MySQL databa
 #### Next steps:
 
 - Alex: Edit the html files so that the website is more appealing to look at
-- Patrick: 
+- Patrick: API migration to AWS and figure out a better way to host the database
 - Rogelio: Fix the bugs so that the last reported time for each lot is displayed, and have the map markers change color based on the lot status
 - Gary: Fix up some of the somewhat buggy features of the mobile app. Also make it smoother and more app-like
 
