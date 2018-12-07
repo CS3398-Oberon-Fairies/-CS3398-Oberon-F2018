@@ -52,6 +52,8 @@ Then `index.html` can be opened in the browser.
 
 While we tried to move the API to AWS, we decided to go with a free MySQL database. The downside to this was that the connection between the API and the DB reset once per day (given that the DB service is only intended for tests), resulting in the API having to be restarted before it can be used. Since this means that we can't guarantee that the API would stay online until the graders can have a look at it, we reverted the API location back to "localhost". 
 
+We have also posted the Final Team Retrospective Review on Slack.
+
 #### Accomplishments:
 
 - Alex: Made quality of life changes to the file 'login.html' which is located in the 'front-end' folder, the changes which I added are a confirm password box and multiple checks to prevent potential user errors from occuring and to give feedback. I also added 'popup.css' which is located in the 'front-end/css' and was used for creating user feedback.
