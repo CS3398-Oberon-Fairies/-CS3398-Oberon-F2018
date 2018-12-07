@@ -57,14 +57,14 @@ While we tried to move the API to AWS, we decided to go with a free MySQL databa
 - Alex: Made quality of life changes to the file 'login.html' which is located in the 'front-end' folder, the changes which I added are a confirm password box and multiple checks to prevent potential user errors from occuring and to give feedback. I also added 'popup.css' which is located in the 'front-end/css' and was used for creating user feedback.
 - Patrick: Worked on the frontend and backend to display all the lots in an ordered list. When opened, the nearest lot is the assumed to be the target. Additionally made the list interactable with the map (as well as the other way around), meaning that lots can be selected as targets from the map and the list. Moved the API to AWS, so the app has a remote location to pull information from. 
 - Rogelio: Worked on the frontend to and made changes to CS3398-Oberon-F2018/front-end/prioritypark.html to display the current status of each parking lot. Also, added a function to CS3398-Oberon-F2018/api/db/ReportInterface.py to return last reported time for a lot, but it did not make it on demo due to bugs. 
-- Gary: Ported the app to work on mobile devices. I made the mobile logo a picture of our group’s moon which can be found in the frontend/pgicons-5c0029b8a2093 folder. I created the config.xml file in the front-end folder. This allowed me to figure out how to make stuff work on the mobile version. The mobile app can be downloaded using the QR code in QR folder. The app doesn’t work with IPhones because I need an apple developer code to put make it work for them. Also, the mobile app doesn’t connect to the database for reasons stated in the notes section. I used Phone Gap when making all this.
+- Gary: Ported the app to work on mobile devices. I made the mobile logo a picture of our groupâ€™s moon which can be found in the frontend/pgicons-5c0029b8a2093 folder. I created the config.xml file in the front-end folder. This allowed me to figure out how to make stuff work on the mobile version. The mobile app can be downloaded using the QR code in QR folder. The app doesnâ€™t work with IPhones because I need an apple developer code to put make it work for them. Also, the mobile app doesnâ€™t connect to the database for reasons stated in the notes section. I used Phone Gap when making all this.
 
 
 #### Next steps:
 
 - Alex: 
 - Patrick: 
-- Rogelio: 
+- Rogelio: Fix the bugs so that the last reported time for each lot is displayed, and have the map markers change color based on the lot status
 - Gary: Fix up some of the somewhat buggy features of the mobile app. Also make it smoother and more app-like
 
 
