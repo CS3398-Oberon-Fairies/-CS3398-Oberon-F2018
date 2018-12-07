@@ -1,4 +1,4 @@
-# Priority Parking
+﻿# Priority Parking
 
 is a web-based application that will be used by students, teachers, or just 
 regular people to make parking less of a hassle. The app will show an 
@@ -62,7 +62,7 @@ While we tried to move the API to AWS, we decided to go with a free MySQL databa
 
 #### Next steps:
 
-- Alex: 
+- Alex: Edit the html files so that the website is more appealing to look at
 - Patrick: 
 - Rogelio: Fix the bugs so that the last reported time for each lot is displayed, and have the map markers change color based on the lot status
 - Gary: Fix up some of the somewhat buggy features of the mobile app. Also make it smoother and more app-like
